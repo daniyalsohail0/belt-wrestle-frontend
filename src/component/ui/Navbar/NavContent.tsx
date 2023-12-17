@@ -8,8 +8,8 @@ interface Props {
 
 const NavContent: React.FC<Props> = ({handleNavClose}) => {
   return (
-    <div className='relative'>
-        <div className='w-[500px] flex justify-between items-center'>
+    <div className='className="md:hidden block"'>
+        <div className='flex justify-between items-center'>
             <h3>Menu</h3>
             <button onClick={handleNavClose}><IoClose className='text-2xl' /></button>
         </div>
