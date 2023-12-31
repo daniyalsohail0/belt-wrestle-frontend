@@ -1,12 +1,15 @@
-import React from 'react'
-import Layout from '../../layout'
+import React from "react";
+import Layout from "../../layout";
+import Banner from "../../component/pages/Banner/Banner";
+import EliteSection from "../../component/pages/EliteSection/EliteSection";
 
-const Home = () => {
+const Home: React.FC = () => {
   return (
     <Layout>
-      Home
+      <Banner />
+      <EliteSection />
     </Layout>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

@@ -1,54 +1,34 @@
-import React, { useState } from "react";
-import PreHeader from "./PreHeader";
-import { IoMenuSharp, IoBagOutline, IoHeartOutline } from "react-icons/io5";
-import NavContent from "./NavContent";
-import Search from "../Search";
+import React from "react";
+import SavedItems from "../SavedItems/SavedItems";
+import Cart from "../Cart/Cart";
+import UserDropdown from "../UserDropdown/UserDropdown";
+import Search from "../Search/Search";
 
 const Navbar: React.FC = () => {
-  const [navToggle, setNavToggle] = useState<boolean>(false);
-
-  const handleNavOpen = () => {
-    setNavToggle(true);
-  };
-
-  const handleNavClose = () => {
-    setNavToggle(false);
-  };
-
   return (
-    <header>
-      <PreHeader />
-      <nav className="flex justify-between items-center">
-        <div>
-          <h2>Belt Wrestle</h2>
+    <nav className="flex justify-center items-center">
+      <div className="w-11/12 flex justify-between items-center p-2">
+        <div className="flex items-center gap-6">
+          <div>Keychains</div>
+          <div>
+            <ul className="flex gap-4 text-sm">
+              <li>Home</li>
+              <li>Pins</li>
+              <li>More Products</li>
+              <li>Gallery</li>
+              <li>Support</li>
+              <li>Contact us</li>
+            </ul>
+          </div>
         </div>
-        <div>
-          <ul className="flex gap-2 p-2">
-            <li>New & Featured</li>
-            <li>Customized</li>
-            <li>Categories</li>
-            <li>Blog</li>
-            <li>About Us</li>
-          </ul>
-        </div>
-        <div className="flex gap-2 px-2">
+        <div className="flex items-center gap-3 bg-gray-800 rounded-full p-1">
           <Search />
-          <button>
-            <IoHeartOutline className="text-2xl text-black" />
-          </button>
-          <button>
-            <IoBagOutline className="text-2xl text-black" />
-          </button>
-          {!navToggle ? (
-            <button onClick={handleNavOpen} className="block md:hidden">
-              <IoMenuSharp className="text-2xl text-black" />
-            </button>
-          ) : (
-            <NavContent handleNavClose={handleNavClose} />
-          )}
+          <SavedItems />
+          <Cart />
+          <UserDropdown />
         </div>
-      </nav>
-    </header>
+      </div>
+    </nav>
   );
 };
 
