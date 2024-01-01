@@ -24,7 +24,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
 
   const handleSave = () => {
     // Implement your save logic here
-    setSavedClicked(true);
+    setSavedClicked(!savedClicked);
   };
 
   return (

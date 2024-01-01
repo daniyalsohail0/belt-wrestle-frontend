@@ -2,7 +2,7 @@ import React from "react";
 
 const Banner: React.FC = () => {
   return (
-    <div className="banner-container relative h-64 h-[600px] bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700 text-white flex items-center justify-center">
+    <div className="h-64 h-[600px] bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700 text-white flex items-center justify-center">
       <div className="text-center">
         <h1 className="text-2xl md:text-4xl lg:text-5xl font-extrabold mb-4">
           Discover Exceptional Championship Belts
