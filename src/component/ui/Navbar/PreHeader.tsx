@@ -2,7 +2,7 @@ import React from "react";
 
 const PreHeader: React.FC = () => {
   return (
-    <div className="bg-gray-300 flex justify-between items-center bg-gray-100 small-text p-2 w-full">
+    <div className="bg-gray-300 md:flex justify-between items-center bg-gray-100 small-text p-2 w-full hidden">
       <div>
         <span className="underline small-text">Claim 30% Off Promo!</span>
       </div>
@@ -13,8 +13,6 @@ const PreHeader: React.FC = () => {
           <li className="underline cursor-pointer">Help</li>
           <li>|</li>
           <li className="underline cursor-pointer">Join Us</li>
-          <li>|</li>
-          <li className="underline cursor-pointer">Sign In</li>
         </ul>
       </div>
     </div>

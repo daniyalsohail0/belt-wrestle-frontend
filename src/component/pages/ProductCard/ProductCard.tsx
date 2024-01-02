@@ -29,7 +29,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
 
   return (
     <div
-      className="relative bg-white shadow-xl p-4"
+      className="relative bg-white shadow-xl p-4 border-2 border-solid border-gray-100"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -37,7 +37,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
         <img
           src={productImage}
           alt={productName}
-          className="w-full object-cover"
+          className="w-full"
         />
         {isHovered && (
           <div className="absolute bottom-2 right-2">
@@ -55,7 +55,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
         <p className="text-xs mb-2">{productDescription}</p>
         <div className="flex justify-between">
           <button
-            className="bg-black text-white px-3 py-1 w-full font-semibold text-xs transition-transform transform hover:scale-105 focus:outline-none"
+            className="bg-black text-white p-2 w-full font-semibold text-xs transition-transform transform hover:scale-105 focus:outline-none"
             onClick={handleAddToCart}
           >
             Add to Cart
