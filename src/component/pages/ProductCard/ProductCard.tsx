@@ -55,7 +55,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
         <p className="text-xs mb-2">{productDescription}</p>
         <div className="flex justify-between">
           <button
-            className="bg-black text-white p-2 w-full font-semibold text-xs transition-transform transform hover:scale-105 focus:outline-none"
+            className="bg-black text-white px-2 py-3 w-full font-semibold text-xs transition-transform transform hover:scale-105 focus:outline-none"
             onClick={handleAddToCart}
           >
             Add to Cart

@@ -105,7 +105,7 @@ const Navbar: React.FC = () => {
           )}
           {toggle && (
             <div
-              className="z-10 fixed -top-0 -right-2 p-3 w-[80vw] h-[155vw] shadow-2xl md:hidden list-none
+              className="z-10 fixed -top-0 -right-2 p-3 w-[80vw] h-screen shadow-2xl md:hidden list-none
       flex flex-col justify-start items-start bg-white animate-slide-in"
             >
               <div

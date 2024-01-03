@@ -1,12 +1,12 @@
 import React from "react";
 import ProductCard from "../ProductCard/ProductCard";
-import data from "./EliteData";
+import data from "../../../utils/placeholderData";
 import { IoArrowForwardOutline } from "react-icons/io5";
 
-const EliteSection: React.FC = () => {
+const NFLBelts: React.FC = () => {
   return (
     <div className="flex flex-col justify-center items-center p-4">
-      <h1 className="m-1 p-1">Elite Series</h1>
+      <h1 className="m-1 p-1">NFL Championship Belts</h1>
       <p className="text-gray-500 text-sm">
         <i>Handcrafted Championship Belts</i>
       </p>
@@ -30,4 +30,4 @@ const EliteSection: React.FC = () => {
   );
 };
 
-export default EliteSection;
+export default NFLBelts;
