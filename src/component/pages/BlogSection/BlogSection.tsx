@@ -1,6 +1,7 @@
 import React from "react";
 import blogs from "../../../utils/placeholderBlogs";
 import BlogCard from "../BlogCard/BlogCard";
+import { IoArrowForwardOutline } from "react-icons/io5";
 
 const BlogSection: React.FC = () => {
   return (
@@ -9,7 +10,7 @@ const BlogSection: React.FC = () => {
       <p className="text-sm text-gray-500">
         <i>Read more about our champions!</i>
       </p>
-      <div className="w-11/12 grid md:grid-cols-4 grid-cols-1 gap-4">
+      <div className="grid md:grid-cols-4 grid-cols-1 gap-4 w-11/12 m-4">
         {blogs.map((blog) => (
           <BlogCard
             key={blog.id}
@@ -21,6 +22,11 @@ const BlogSection: React.FC = () => {
           />
         ))}
       </div>
+      <br />
+      <button className="bg-black text-white px-4 py-3 flex gap-2 items-center font-semibold text-sm transition-transform transform hover:scale-105 focus:outline-none">
+        <span>View More</span>
+        <IoArrowForwardOutline />
+      </button>
     </div>
   );
 };

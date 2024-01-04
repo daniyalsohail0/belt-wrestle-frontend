@@ -17,15 +17,15 @@ const BlogCard: React.FC<BlogProps> = ({
   imageUrl,
 }) => {
   return (
-    <div>
-      <img src={imageUrl} alt="blog" />
-      <h3>{title}</h3>
-      <p>
+    <div className="relative bg-white shadow-xl p-4 border-2 border-solid border-gray-100 flex flex-col">
+      <img src={imageUrl} alt="blog" className="w-full object-cover" />
+      <h3 className="text-xl font-bold px-2 pt-2">{title}</h3>
+      <p className="text-xs px-2">
         <i>{description}</i>
       </p>
-      <div className="px-4 py-3 bg-black text-white scale-105 duration-200 transition-transform">
+      <button className="px-2 py-3 bg-black text-white transition-transform transform hover:scale-105 focus:outline-none duration-200 w-full mt-auto bottom-0 text-sm">
         <Link to={blogUrl}>Read more</Link>
-      </div>
+      </button>
     </div>
   );
 };
