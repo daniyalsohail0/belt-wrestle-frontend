@@ -5,6 +5,7 @@ import { IoAddCircleSharp } from "react-icons/io5";
 import ImageSlider from "../../component/pages/ImageCarousel/ImageSlider";
 import Reviews from "../../component/pages/Reviews/Reviews";
 import ProductDescription from "../../component/pages/Description/ProductDescription";
+import reviewsData from "../../utils/reviewsData";
 
 const ProductPage: React.FC = () => {
   const [quantity, setQuantity] = useState<number>(1);
@@ -51,7 +52,7 @@ const ProductPage: React.FC = () => {
             </div>
           </div>
           <ProductDescription />
-          <Reviews />
+          <Reviews reviews={reviewsData} />
         </div>
       </div>
     </Layout>
