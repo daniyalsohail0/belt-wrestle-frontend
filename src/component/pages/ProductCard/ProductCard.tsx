@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import { FaHeart } from "react-icons/fa6";
 import { useDispatch } from "react-redux";
 import { addItem } from "../../../state/cart/cartSlice";
-import {
-  addSavedItem,
-} from "../../../state/savedItems/savedItemSlice";
+import { addSavedItem } from "../../../state/savedItems/savedItemSlice";
+import { Link } from "react-router-dom";
 
 interface ProductCardProps {
   productID: number;
@@ -64,7 +63,9 @@ const ProductCard: React.FC<ProductCardProps> = ({
         </div>
       </div>
       <div className="p-2">
-        <h3 className="text-sm font-semibold mb-1">{productName}</h3>
+        <Link to={`/product-page`}>
+          <h3 className="text-sm font-semibold mb-1">{productName}</h3>
+        </Link>
         <p className="text-gray-500 text-xs mb-2">{productPrice}</p>
         <p className="text-xs mb-2">{productDescription}</p>
         <div className="flex justify-between">
