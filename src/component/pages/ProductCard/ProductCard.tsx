@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { FaHeart } from "react-icons/fa6";
-import { useSelector } from "react-redux";
-import { RootState } from "../../../state/store";
 import { useDispatch } from "react-redux";
 import { addItem } from "../../../state/cart/cartSlice";
+import {
+  addSavedItem,
+} from "../../../state/savedItems/savedItemSlice";
 
 interface ProductCardProps {
   productID: number;
@@ -20,13 +21,9 @@ const ProductCard: React.FC<ProductCardProps> = ({
   productPrice,
   productDescription,
 }) => {
-  const [isHovered, setIsHovered] = useState<boolean>(false);
   const [savedClicked, setSavedClicked] = useState<boolean>(false);
 
-  const state = useSelector((state: RootState) => state.cart);
   const dispatch = useDispatch();
-
-  console.log(state);
 
   const handleAddToCart = () => {
     dispatch(
@@ -40,28 +37,31 @@ const ProductCard: React.FC<ProductCardProps> = ({
     );
   };
 
+  const image =
+    productImage ||
+    `https://nayemdevs.com/wp-content/uploads/2020/03/default-product-image.png`;
+
   const handleSave = () => {
-    // Implement your save logic here
-    setSavedClicked(!savedClicked);
+    setSavedClicked(true);
+    dispatch(
+      addSavedItem({
+        id: productID,
+        name: productName,
+        price: productPrice,
+        imageUrl: image,
+      })
+    );
   };
 
   return (
-    <div
-      className="relative bg-white shadow-xl p-4 border-2 border-solid border-gray-100"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
+    <div className="relative bg-white shadow-xl p-4 border-2 border-solid border-gray-100">
       <div className="relative">
         <img src={productImage} alt={productName} className="w-full" />
-        {isHovered && (
-          <div className="absolute bottom-2 right-2">
-            <button onClick={handleSave}>
-              <FaHeart
-                className={savedClicked ? "text-red-600" : "text-white"}
-              />
-            </button>
-          </div>
-        )}
+        <div className="absolute bottom-2 right-2">
+          <button onClick={handleSave}>
+            <FaHeart className={savedClicked ? "text-red-600" : "text-white"} />
+          </button>
+        </div>
       </div>
       <div className="p-2">
         <h3 className="text-sm font-semibold mb-1">{productName}</h3>

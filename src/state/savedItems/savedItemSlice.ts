@@ -1,72 +1,53 @@
+// savedItemsSlice.ts
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface CartItem {
+interface SavedItem {
   id: number;
   name: string;
   price: string;
   imageUrl: string;
-  quantity: number;
 }
 
-interface CartState {
-  items: CartItem[];
+interface SavedItemsState {
+  items: SavedItem[];
 }
 
-const loadState = (): CartState => {
-  try {
-    const serializedState = localStorage.getItem("cartState");
-    if (serializedState === null) {
-      return { items: [] };
-    }
-    return JSON.parse(serializedState);
-  } catch (error) {
-    return { items: [] };
-  }
+const initialState: SavedItemsState = {
+  items: [],
 };
 
-const initialState: CartState = loadState();
-
-const cartSlice = createSlice({
-  name: "cartState",
+const savedItemsSlice = createSlice({
+  name: "savedItems",
   initialState,
   reducers: {
-    addItem: (state, action: PayloadAction<CartItem>) => {
-      const { id, name, price, imageUrl, quantity } = action.payload;
-      const existingItem = state.items.find((item) => item.id === id);
+    addSavedItem: (state, action: PayloadAction<SavedItem>) => {
+      const newItem = action.payload;
 
-      if (existingItem) {
-        existingItem.quantity += quantity;
-      } else {
-        state.items.push({ id, name, price, imageUrl, quantity });
+      // Ensure that state.items is defined before calling find
+      if (state.items) {
+        const existingItem = state.items.find((item) => item.id === newItem.id);
+
+        if (existingItem) {
+          alert("Item already saved");
+        } else {
+          state.items.push(newItem);
+        }
       }
-
-      localStorage.setItem("cartState", JSON.stringify(state));
     },
-    removeItem: (state, action: PayloadAction<CartItem>) => {
-      const idToRemove = action.payload.id;
+    removeSavedItem: (state, action: PayloadAction<number>) => {
+      const idToRemove = action.payload;
 
-      state.items = state.items.filter((item) => item.id !== idToRemove);
-
-      localStorage.setItem("cartState", JSON.stringify(state));
+      // Ensure that state.items is defined before calling find
+      if (state.items) {
+        state.items = state.items.filter((item) => item.id !== idToRemove);
+      }
     },
-    updateQuantity: (state, action: PayloadAction<CartItem>) => {
-      const { id, quantity } = action.payload;
-      const updatedItems = state.items.map((item) =>
-        item.id === id ? { ...item, quantity: quantity } : item
-      );
-
-      state.items = updatedItems;
-
-      localStorage.setItem("cartState", JSON.stringify(updatedItems));
-    },
-    clearCart: (state) => {
+    clearSavedItems: (state) => {
       state.items = [];
-      localStorage.setItem("cartState", JSON.stringify(state));
     },
   },
 });
 
-export const { addItem, removeItem, updateQuantity, clearCart } =
-  cartSlice.actions;
+export const { addSavedItem, removeSavedItem, clearSavedItems } = savedItemsSlice.actions;
 
-export default cartSlice.reducer;
+export default savedItemsSlice.reducer;
