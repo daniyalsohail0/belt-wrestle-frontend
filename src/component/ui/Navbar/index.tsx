@@ -57,11 +57,13 @@ const Navbar: React.FC = () => {
       <div className="w-11/12 flex justify-between items-center p-2 my-2">
         {/* Remove or add content to the following div */}
         <div className="flex items-center gap-6">
-          <img
-            src={require("../../../images/belt.png")}
-            alt="logo"
-            className="w-1/4 md:w-[200px]"
-          />
+          <Link to={`/`}>
+            <img
+              src={require("../../../images/belt.png")}
+              alt="logo"
+              className="w-1/4 md:w-[200px]"
+            />
+          </Link>
           <div className="hidden md:block">
             <ul className="flex gap-4 text-sm">
               <li>
@@ -78,6 +80,9 @@ const Navbar: React.FC = () => {
               </li>
               <li>
                 <Link to={`/contact-us`}>Contact us</Link>
+              </li>
+              <li>
+                <Link to={`/faqs`}>Faqs</Link>
               </li>
             </ul>
           </div>

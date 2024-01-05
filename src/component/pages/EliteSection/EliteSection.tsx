@@ -14,6 +14,7 @@ const EliteSection: React.FC = () => {
         {data.map((item, index) => (
           <ProductCard
             key={index}
+            productID={item.id}
             productName={item.name}
             productImage={item.imageURL}
             productPrice={item.price}

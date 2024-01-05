@@ -9,18 +9,21 @@ const SavedItems = () => {
 
   const addedItems = [
     {
+      id: 1,
       name: "Keychain",
       img: null,
       quantity: 1,
       price: "$10",
     },
     {
+      id: 2,
       name: "T-Shirt",
       img: null,
       quantity: 2,
       price: "$20",
     },
     {
+      id: 3,
       name: "Mug",
       img: null,
       quantity: 3,
@@ -65,16 +68,17 @@ const SavedItems = () => {
             </button>
           </div>
           <div className="flex flex-col justify-center items-center gap-8">
-              {addedItems.map((item, index) => (
-                <CartItem
-                  key={index}
-                  name={item.name}
-                  img={item.img}
-                  quantity={item.quantity}
-                  price={item.price}
-                />
-              ))}
-            </div>
+            {addedItems.map((item, index) => (
+              <CartItem
+                key={index}
+                id={item.id}
+                name={item.name}
+                img={item.img}
+                quantity={item.quantity}
+                price={item.price}
+              />
+            ))}
+          </div>
         </div>
       )}
     </div>

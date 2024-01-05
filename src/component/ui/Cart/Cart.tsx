@@ -2,31 +2,14 @@ import React, { useState, useRef, useEffect } from "react";
 import { FaCartShopping } from "react-icons/fa6";
 import { IoClose } from "react-icons/io5";
 import CartItem from "../CartItem/CartItem";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../state/store";
 
 const Cart = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const addedItems = [
-    {
-      name: "Keychain",
-      img: null,
-      quantity: 1,
-      price: "$10",
-    },
-    {
-      name: "T-Shirt",
-      img: null,
-      quantity: 2,
-      price: "$20",
-    },
-    {
-      name: "Mug",
-      img: null,
-      quantity: 3,
-      price: "$15",
-    },
-  ];
+  const state = useSelector((state: RootState) => state.cart);
 
   const handleToggle = () => {
     setIsOpen(!isOpen);
@@ -66,15 +49,20 @@ const Cart = () => {
               </button>
             </div>
             <div className="flex flex-col justify-center items-center gap-8">
-              {addedItems.map((item, index) => (
-                <CartItem
-                  key={index}
-                  name={item.name}
-                  img={item.img}
-                  quantity={item.quantity}
-                  price={item.price}
-                />
-              ))}
+              {state.items.length === 0 ? (
+                <>Your cart is empty</>
+              ) : (
+                state.items.map((item, index) => (
+                  <CartItem
+                    key={index}
+                    id={item.id}
+                    name={item.name}
+                    img={item.imageUrl}
+                    quantity={item.quantity}
+                    price={item.price}
+                  />
+                ))
+              )}
             </div>
           </div>
           <div className="flex justify-center items-center">

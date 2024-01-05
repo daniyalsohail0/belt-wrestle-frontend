@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import { FaHeart } from "react-icons/fa6";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../state/store";
+import { useDispatch } from "react-redux";
+import { addItem } from "../../../state/cart/cartSlice";
 
 interface ProductCardProps {
+  productID: number;
   productName: string;
   productImage: string;
   productPrice: string;
@@ -9,6 +14,7 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({
+  productID,
   productName,
   productImage,
   productPrice,
@@ -17,9 +23,21 @@ const ProductCard: React.FC<ProductCardProps> = ({
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const [savedClicked, setSavedClicked] = useState<boolean>(false);
 
+  const state = useSelector((state: RootState) => state.cart);
+  const dispatch = useDispatch();
+
+  console.log(state);
+
   const handleAddToCart = () => {
-    // Implement your add to cart logic here
-    console.log(`Added ${productName} to cart`);
+    dispatch(
+      addItem({
+        id: productID,
+        name: productName,
+        price: productPrice,
+        imageUrl: productImage,
+        quantity: 1,
+      })
+    );
   };
 
   const handleSave = () => {
@@ -34,11 +52,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="relative">
-        <img
-          src={productImage}
-          alt={productName}
-          className="w-full"
-        />
+        <img src={productImage} alt={productName} className="w-full" />
         {isHovered && (
           <div className="absolute bottom-2 right-2">
             <button onClick={handleSave}>

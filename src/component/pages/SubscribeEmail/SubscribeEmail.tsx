@@ -9,7 +9,7 @@ const SubscribeEmail: React.FC = () => {
 
   return (
     <div className="bg-gray-100 flex flex-col justify-center items-center h-[300px]">
-      <h1>Subscribe For Our Giveaways!</h1>
+      <h1 className="text-center px-4">Subscribe For Our Giveaways!</h1>
       <div className="flex gap-4 bg-white px-4 py-2 shadow-xl">
         <input
           type="email"

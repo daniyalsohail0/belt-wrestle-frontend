@@ -1,9 +1,17 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../state/store";
+import { useDispatch } from "react-redux";
+import { accepted } from "../../../state/cookies/cookieSlice";
 
 const CookieModal: React.FC = () => {
-  const [active, setActive] = useState<boolean>(true);
+  const state = useSelector((state: RootState) => state.cookies)
+  const dispatch = useDispatch();
+
+  const [active, setActive] = useState<boolean>(state.modalOpen);
 
   const handleClose = () => {
+    dispatch(accepted())
     setActive(false)
   }
 
@@ -13,7 +21,7 @@ const CookieModal: React.FC = () => {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="flex flex-col bg-white p-3 m-4 w-1/3">
+      <div className="flex flex-col bg-white p-3 m-4 md:w-1/3 w-11/12">
         <h4>Cookie Notice</h4>
         <p className="text-xs">
           Welcome to our website! In order to provide you with the best possible
