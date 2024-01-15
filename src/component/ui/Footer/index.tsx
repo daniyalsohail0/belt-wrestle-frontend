@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from '../../../images/belt.png'
+import logo from "../../../images/belt.png";
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa6";
 
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
     <footer>
       <div className="flex justify-center items-center">
@@ -15,25 +15,25 @@ const Footer = () => {
               Education.
             </p>
             <div className="flex gap-2 p-2">
-            <FaFacebook />
-            <FaInstagram />
-            <FaTwitter />
+              <FaFacebook />
+              <FaInstagram />
+              <FaTwitter />
             </div>
           </div>
           <div className="grid md:grid-cols-3 grid-cols-2 gap-6 w-3/4 p-2">
             <div>
               <p className="py-3 font-semibold">Pages</p>
               <ul>
-                <li>
+                <li className="py-2 text-sm hover:underline">
                   <Link to="/about-us">About Us</Link>
                 </li>
-                <li>
+                <li className="py-2 text-sm hover:underline">
                   <Link to="/products">Products</Link>
                 </li>
-                <li>
+                <li className="py-2 text-sm hover:underline">
                   <Link to="/blogs">Blogs</Link>
                 </li>
-                <li>
+                <li className="py-2 text-sm hover:underline">
                   <Link to="/shop">Shop</Link>
                 </li>
               </ul>
@@ -41,22 +41,32 @@ const Footer = () => {
             <div>
               <p className="py-3 font-semibold">Company</p>
               <ul>
-                <li>
+                <li className="py-2 text-sm hover:underline">
                   <Link to="/team">Team</Link>
                 </li>
-                <li>
+                <li className="py-2 text-sm hover:underline">
                   <Link to="/mission-vision">Mission & Vision</Link>
                 </li>
-                <li>
+                <li className="py-2 text-sm hover:underline">
                   <Link to="/careers">Careers</Link>
+                </li>
+                <li className="py-2 text-sm hover:underline">
+                  <Link to="/policies/refund-policy">Refund Policy</Link>
+                </li>
+                <li className="py-2 text-sm hover:underline">
+                  <Link to="/policies/shipping-policy">Shipping Policy</Link>
                 </li>
               </ul>
             </div>
             <div>
               <p className="py-3 font-semibold">Resources</p>
               <ul>
-                <li>Blogs</li>
-                <li>Contact Support</li>
+                <li className="py-2 text-sm hover:underline">
+                  <Link to='/blogs'>Blogs</Link>
+                </li>
+                <li className="py-2 text-sm hover:underline">
+                  <Link to="/contact-us">Contact Us</Link>
+                </li>
               </ul>
             </div>
           </div>
@@ -73,13 +83,15 @@ const Footer = () => {
           <div>
             <ul className="md:flex hidden gap-4">
               <li>
-                <Link to="/privacy-policy">Security & Privacy Policy</Link>
+                <Link to="/policies/privacy-policy">
+                  Security & Privacy Policy
+                </Link>
               </li>
               <li>
-                <Link to="/terms-condition">Terms & Condition</Link>
+                <Link to="/policies/terms-condition">Terms & Condition</Link>
               </li>
               <li>
-                <Link to="/cookie-policy">Cookie Notice</Link>
+                <Link to="/policies/cookie-policy">Cookie Notice</Link>
               </li>
             </ul>
           </div>
