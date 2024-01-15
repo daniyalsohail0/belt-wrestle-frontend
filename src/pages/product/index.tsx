@@ -7,9 +7,30 @@ import ImageSlider from "../../component/pages/ImageCarousel/ImageSlider";
 import Reviews from "../../component/pages/Reviews/Reviews";
 import ProductDescription from "../../component/pages/Description/ProductDescription";
 import reviewsData from "../../utils/reviewsData";
+import { useDispatch } from "react-redux";
+import { addItem } from "../../state/cart/cartSlice";
+import { useLocation } from "react-router-dom";
 
 const ProductPage: React.FC = () => {
   const [quantity, setQuantity] = useState<number>(1);
+  const dispatch = useDispatch();
+  const location = useLocation();
+
+  console.log(location)
+
+  const product = location.state;
+
+  const handleAddToCart = () => {
+    dispatch(
+      addItem({
+        id: product.productID,
+        name: product.productName,
+        price: product.productPrice,
+        imageUrl: product.productImage,
+        quantity: quantity,
+      })
+    );
+  };
   return (
     <Layout>
       <div className="flex justify-center items-center">
@@ -19,16 +40,11 @@ const ProductPage: React.FC = () => {
               <ImageSlider />
             </div>
             <div className="md:w-1/2 flex flex-col gap-3">
-              <h1>Product Name</h1>
-              <span className="font-bold">Price: $199</span>
-              <span className="text-sm">Rating: 4/5</span>
+              <h1>{product.productName}</h1>
+              <span className="font-bold">Price: {product.productPrice}</span>
+              <span className="text-sm">{product.productReview}</span>
               <p className="text-sm">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus,
-                porro corporis aliquam commodi fuga quis minima possimus enim!
-                Aperiam laboriosam error explicabo. Saepe aut vitae asperiores
-                eaque exercitationem vel aperiam dolor est nam sapiente iste
-                quis voluptate, fugit expedita voluptatum quod eveniet rerum
-                dolores, doloremque iure. Assumenda tenetur incidunt quibusdam.
+                {product.productDescription}
               </p>
               <div className="flex gap-2 items-center">
                 {quantity === 1 ? (
@@ -46,7 +62,10 @@ const ProductPage: React.FC = () => {
                 </button>
               </div>
               <div className="flex gap-4">
-                <button className="bg-black text-white px-3 py-2 hover:scale-105 transition-transform">
+                <button
+                  className="bg-black text-white px-3 py-2 hover:scale-105 transition-transform"
+                  onClick={handleAddToCart}
+                >
                   Add to cart
                 </button>
                 <button

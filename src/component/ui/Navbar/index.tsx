@@ -76,7 +76,7 @@ const Navbar: React.FC = () => {
                 <Link to={`/reviews`}>Reviews</Link>
               </li>
               <li>
-                <Link to={`/blog`}>Blogs</Link>
+                <Link to={`/blogs`}>Blogs</Link>
               </li>
               <li>
                 <Link to={`/contact-us`}>Contact us</Link>

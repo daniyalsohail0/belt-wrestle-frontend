@@ -52,6 +52,14 @@ const ProductCard: React.FC<ProductCardProps> = ({
     );
   };
 
+  const product = {
+    productID,
+    productName,
+    productImage,
+    productPrice,
+    productDescription,
+  };
+
   return (
     <div className="relative bg-white shadow-xl p-4 border-2 border-solid border-gray-100">
       <div className="relative">
@@ -63,7 +71,10 @@ const ProductCard: React.FC<ProductCardProps> = ({
         </div>
       </div>
       <div className="p-2">
-        <Link to={`/product-page`}>
+        <Link
+          to={`/product/${product.productID}`}
+          state={product}
+        >
           <h3 className="text-sm font-semibold mb-1">{productName}</h3>
         </Link>
         <p className="text-gray-500 text-xs mb-2">{productPrice}</p>

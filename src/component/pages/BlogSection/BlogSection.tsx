@@ -1,5 +1,5 @@
 import React from "react";
-import blogs from "../../../utils/placeholderBlogs";
+import blogs from "../../../utils/blogs";
 import BlogCard from "../BlogCard/BlogCard";
 import { IoArrowForwardOutline } from "react-icons/io5";
 
@@ -17,8 +17,8 @@ const BlogSection: React.FC = () => {
             id={blog.id}
             title={blog.title}
             description={blog.description}
-            imageUrl={blog.imageUrl}
-            blogUrl={blog.blogUrl}
+            imageUrl={blog.blogImage}
+            blogUrl={blog.link}
           />
         ))}
       </div>

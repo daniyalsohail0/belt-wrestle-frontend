@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 interface BlogProps {
-  id: number;
+  id: string;
   title: string;
   description: string;
   blogUrl: string;
