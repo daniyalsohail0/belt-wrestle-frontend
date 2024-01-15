@@ -16,27 +16,27 @@ const Navbar: React.FC = () => {
   const collectionDropdown = [
     {
       name: "AEW Belts",
-      link: "/aew-belts",
+      link: "/collection/aew-belts",
     },
     {
       name: "CNC Belts",
-      link: "/cnc-belts",
+      link: "/collection/cnc-belts",
     },
     {
       name: "WWE Belts",
-      link: "/wwe-belts",
+      link: "/collection/wwe-belts",
     },
     {
       name: "IWGP Belts",
-      link: "/iwgp-belts",
+      link: "/collection/iwgp-belts",
     },
     {
       name: "Boxing Belts",
-      link: "/iwgp-belts",
+      link: "/collection/boxing-belts",
     },
     {
       name: "UFC Belts",
-      link: "/ufc-belts",
+      link: "/collection/ufc-belts",
     },
   ];
 

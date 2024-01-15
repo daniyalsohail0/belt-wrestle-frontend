@@ -2,6 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../../images/belt.png";
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa6";
+import { FaPinterestSquare, FaYoutube } from "react-icons/fa";
+import { IoLocationSharp } from "react-icons/io5";
+import { IoCall } from "react-icons/io5";
+import { MdEmail } from "react-icons/md";
 
 const Footer: React.FC = () => {
   return (
@@ -11,13 +15,34 @@ const Footer: React.FC = () => {
           <div>
             <img src={logo} alt="edspareLogo" width={180} />
             <p className="p-2 text-sm">
-              Smarter Learning, Brighter Tomorrow: EdSpare - Where AI Shapes
-              Education.
+              Wear the legacy, feel the prestige – our WWE and UFC belts embody
+              the essence of true champions.
             </p>
+            <div className="flex gap-2 items-center my-1 py-1">
+              <IoLocationSharp className="text-xl" />
+              <span className="text-sm font-semibold">
+                Mirror Works, 12 Marshgate Ln, London E15 2NH
+              </span>
+            </div>
+            <div className="flex gap-2 items-center my-1 py-1">
+              <IoCall className="text-xl" />
+              <span className="text-sm font-semibold">
+                +44 7467 100 942
+              </span>
+            </div>
+            <div className="flex gap-2 items-center my-1 py-1">
+              <MdEmail className="text-xl" />
+              <span className="text-sm font-semibold">
+                info@beltwrestle.com
+              </span>
+            </div>
+            <br />
             <div className="flex gap-2 p-2">
-              <FaFacebook />
-              <FaInstagram />
-              <FaTwitter />
+              <FaFacebook className="text-blue-700 text-2xl hover:scale-125 transform transition-transform duration-200 ease-in-out" />
+              <FaInstagram className="text-purple-700 text-2xl hover:scale-125 transform transition-transform duration-200 ease-in-out" />
+              <FaTwitter className="text-sky-700 text-2xl hover:scale-125 transform transition-transform duration-200 ease-in-out" />
+              <FaPinterestSquare className="text-red-700 text-2xl hover:scale-125 transform transition-transform duration-200 ease-in-out" />
+              <FaYoutube className="text-red-800 text-2xl hover:scale-125 transform transition-transform duration-200 ease-in-out" />
             </div>
           </div>
           <div className="grid md:grid-cols-3 grid-cols-2 gap-6 w-3/4 p-2">
@@ -62,7 +87,7 @@ const Footer: React.FC = () => {
               <p className="py-3 font-semibold">Resources</p>
               <ul>
                 <li className="py-2 text-sm hover:underline">
-                  <Link to='/blogs'>Blogs</Link>
+                  <Link to="/blogs">Blogs</Link>
                 </li>
                 <li className="py-2 text-sm hover:underline">
                   <Link to="/contact-us">Contact Us</Link>
@@ -76,7 +101,7 @@ const Footer: React.FC = () => {
         <div className="w-11/12 md:flex justify-between items-center md:py-3 md:px-4 py-2 text-xs">
           <div>
             <span className="text-xs">
-              Copyright © 2023 Hyper Infinity Systems LTD. - All Rights
+              Copyright © 2023 | Belt Wrestle LTD. - All Rights
               Reserved.
             </span>
           </div>
