@@ -52,10 +52,8 @@ const Navbar: React.FC = () => {
   ];
 
   return (
-    <nav className="sticky top-0 flex flex-col justify-center items-center z-[1] bg-white">
-      <PreHeader />
+    <nav className="sticky top-0 flex flex-col justify-center items-center z-[1] text-white bg-black">
       <div className="w-11/12 flex justify-between items-center p-2 my-2">
-        {/* Remove or add content to the following div */}
         <div className="flex items-center gap-6">
           <Link to={`/`}>
             <img

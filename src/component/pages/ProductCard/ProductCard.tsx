@@ -70,15 +70,14 @@ const ProductCard: React.FC<ProductCardProps> = ({
           </button>
         </div>
       </div>
-      <div className="p-2">
-        <Link
-          to={`/product/${product.productID}`}
-          state={product}
-        >
-          <h3 className="text-sm font-semibold mb-1">{productName}</h3>
-        </Link>
-        <p className="text-gray-500 text-xs mb-2">{productPrice}</p>
-        <p className="text-xs mb-2">{productDescription}</p>
+      <div className="flex flex-col justify-between">
+        <div>
+          <Link to={`/product/${product.productID}`} state={product}>
+            <h3 className="text-sm font-semibold mb-1">{productName}</h3>
+          </Link>
+          <p className="text-gray-500 text-xs mb-2">{productPrice}</p>
+          <p className="text-xs mb-2">{productDescription}</p>
+        </div>
         <div className="flex justify-between">
           <button
             className="bg-black text-white px-2 py-3 w-full font-semibold text-xs transition-transform transform hover:scale-105 focus:outline-none"
