@@ -25,13 +25,13 @@ const UserDropdown: React.FC = () => {
 
   return (
     <div
-      className="bg-gray-700 rounded-full p-1 cursor-pointer"
+      className="bg-gray-700 rounded-full p-2 cursor-pointer"
       onClick={handleToggle}
       ref={dropdownRef}
     >
       <AiOutlineUser className="text-white" />
       {isOpen && (
-        <div className="p-2 absolute bg-white w-[180px] shadow-xl z-[1] rounded-2xl right-16">
+        <div className="px-2 py-4 absolute bg-white w-[180px] shadow-xl z-[1] rounded-2xl right-16">
           <ul className="flex flex-col gap-3 p-2 text-sm">
             <li className="hover:underline">Orders</li>
             <li className="hover:underline">Support</li>

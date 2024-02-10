@@ -2,100 +2,103 @@ import React, { useState } from "react";
 import SavedItems from "../SavedItems/SavedItems";
 import Cart from "../Cart/Cart";
 import UserDropdown from "../UserDropdown/UserDropdown";
-import Search from "../Search/Search";
 import Dropdown from "../Dropdown/Dropdown";
 import { Link } from "react-router-dom";
-import PreHeader from "./PreHeader";
 import { AiOutlineClose } from "react-icons/ai";
 import { HiMenuAlt4 } from "react-icons/hi";
 import MobileDropdown from "../Dropdown/MobileDropdown";
+import logo from '../../../images/branding/BWprimary logo.png'
 
 const Navbar: React.FC = () => {
   const [toggle, setToggle] = useState<boolean>(false);
 
   const collectionDropdown = [
     {
-      name: "AEW Belts",
-      link: "/collection/aew-belts",
+      name: "PVC Patches",
+      link: "/collection/pvc-patches",
     },
     {
-      name: "CNC Belts",
-      link: "/collection/cnc-belts",
+      name: "IR Patches",
+      link: "/collection/ir-patches",
     },
     {
-      name: "WWE Belts",
-      link: "/collection/wwe-belts",
+      name: "Embroidery Patches",
+      link: "/collection/embroidery-patches",
     },
     {
-      name: "IWGP Belts",
-      link: "/collection/iwgp-belts",
+      name: "Laser Cut",
+      link: "/collection/laser-cut",
     },
     {
-      name: "Boxing Belts",
-      link: "/collection/boxing-belts",
+      name: "Printed",
+      link: "/collection/printed",
     },
     {
-      name: "UFC Belts",
-      link: "/collection/ufc-belts",
+      name: "Reflective",
+      link: "/collection/reflective",
+    },
+    {
+      name: "American Made PVC",
+      link: "/collection/american-made-pvc",
     },
   ];
 
   const customDropdown = [
     {
-      name: "Customized Belts",
-      link: "/customized-belts",
+      name: "Customized Patches",
+      link: "/custom/patches",
     },
     {
-      name: "Gifts",
-      link: "/gifts",
+      name: "Customized Keychains",
+      link: "/custom/keychains",
     },
   ];
 
   return (
-    <nav className="sticky top-0 flex flex-col justify-center items-center z-[1] text-white bg-black">
+    <nav className="flex flex-col justify-center items-center z-[1] bg-white">
       <div className="w-11/12 flex justify-between items-center p-2 my-2">
+        {/* Remove or add content to the following div */}
         <div className="flex items-center gap-6">
           <Link to={`/`}>
-            <img
-              src={require("../../../images/belt.png")}
-              alt="logo"
-              className="w-1/4 md:w-[200px]"
-            />
+            <img src={logo} alt="logo" className="w-[175px]" />
           </Link>
-          <div className="hidden md:block">
+          <div className="hidden md:block font-semibold pt-3">
             <ul className="flex gap-4 text-sm">
               <li>
-                <Dropdown name="Collection" list={collectionDropdown} />
+                <Dropdown name="Patches" list={collectionDropdown} />
               </li>
               <li>
                 <Dropdown name="Customized" list={customDropdown} />
               </li>
               <li>
-                <Link to={`/reviews`}>Reviews</Link>
+                <Link to={`/keychains`}>Keychains</Link>
               </li>
               <li>
-                <Link to={`/blogs`}>Blogs</Link>
+                <Link to={`/blogs`}>T Shirts</Link>
               </li>
               <li>
-                <Link to={`/contact-us`}>Contact us</Link>
+                <Link to={`/contact-us`}>Riffle Bags</Link>
               </li>
               <li>
-                <Link to={`/faqs`}>Faqs</Link>
+                <Link to={`/reviews`}>Flags</Link>
+              </li>
+              <li>
+                <Link to={`/blogs`}>Stickers</Link>
               </li>
             </ul>
           </div>
         </div>
-        <div className="md:flex hidden items-center gap-3 bg-gray-800 rounded-full p-1">
-          <Search />
+        <div className="md:flex hidden items-center gap-4">
           <SavedItems />
           <Cart />
           <UserDropdown />
         </div>
-        <div className="flex md:hidden relative">
+        <div className="flex items-center gap-2 md:hidden relative">
+          <SavedItems />
+          <Cart />
           {!toggle && (
             <HiMenuAlt4
-              fontSize={28}
-              className="md:hidden cursor-pointer"
+              className="md:hidden cursor-pointer text-2xl"
               onClick={() => setToggle(true)}
             />
           )}
@@ -112,39 +115,33 @@ const Navbar: React.FC = () => {
       flex flex-col justify-start items-start bg-white animate-slide-in"
             >
               <div
-                className="place-self-end p-2"
+                className="place-self-end py-2 px-4"
                 onClick={() => setToggle(false)}
               >
-                <AiOutlineClose />
+                <AiOutlineClose className="text-xl font-bold" />
               </div>
-              <div className="w-full p-2">
+              <div className="w-full py-2 pl-3 pr-4">
                 <ul className="flex flex-col gap-4 text-lg">
                   <li>
-                    <MobileDropdown
-                      name="Collection"
-                      list={collectionDropdown}
-                    />
+                    <MobileDropdown name="Patches" list={collectionDropdown} />
                   </li>
                   <li>
                     <MobileDropdown name="Customized" list={customDropdown} />
                   </li>
                   <li>
-                    <Link to={`/reviews`} className="text-black font-semibold">
-                      Reviews
-                    </Link>
+                    <Link to={`/keychains`}>Keychains</Link>
                   </li>
                   <li>
-                    <Link to={`/blog`} className="text-black font-semibold">
-                      Blogs
-                    </Link>
+                    <Link to={`/blogs`}>T Shirts</Link>
                   </li>
                   <li>
-                    <Link
-                      to={`/contact-us`}
-                      className="text-black font-semibold"
-                    >
-                      Contact us
-                    </Link>
+                    <Link to={`/contact-us`}>Riffle Bags</Link>
+                  </li>
+                  <li>
+                    <Link to={`/reviews`}>Flags</Link>
+                  </li>
+                  <li>
+                    <Link to={`/blogs`}>Stickers</Link>
                   </li>
                 </ul>
               </div>

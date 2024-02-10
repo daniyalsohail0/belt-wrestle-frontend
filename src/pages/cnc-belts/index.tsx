@@ -3,7 +3,7 @@ import Layout from "../../layout";
 import Search from "../../component/ui/Search";
 import { IoFilterSharp } from "react-icons/io5";
 import { IoIosArrowDown } from "react-icons/io";
-import dummyProducts from "../../utils/dummyProducts";
+import dummyProducts from "../../utils/patchesData";
 import ProductCard from "../../component/pages/ProductCard/ProductCard";
 
 const CNCBelts: React.FC = () => {
@@ -90,14 +90,15 @@ const CNCBelts: React.FC = () => {
             </div>
           </div>
           <div className="grid md:grid-cols-4 grid-cols-1 gap-4">
-            {dummyProducts.map((product, index) => (
+            {dummyProducts.map((item, index) => (
               <ProductCard
                 key={index}
-                productID={product.id}
-                productName={product.name}
-                productImage={product.imageURL}
-                productDescription={product.description}
-                productPrice={product.price}
+                productID={item.productDescription}
+                productName={item.productName}
+                productSubtitle={item.productSubtitle}
+                productImage={item.productImage}
+                productPrice={item.productImage}
+                productDescription={item.productDescription}
               />
             ))}
           </div>

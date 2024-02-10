@@ -1,34 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import ProductCard from "../ProductCard/ProductCard";
-import data from "./EliteData";
+import data from "../../../utils/patchesData";
 import { IoArrowForwardOutline } from "react-icons/io5";
 
-const EliteSection: React.FC = () => {
+const FeaturedProducts: React.FC = () => {
+  const [showArrow, setShowArrow] = useState<boolean>(false);
+
+  const products = data.slice(0, 5);
   return (
     <div className="flex flex-col justify-center items-center p-4">
-      <h1 className="m-1 p-1">Elite Series</h1>
-      <p className="text-gray-500 text-sm">
-        <i>Handcrafted Championship Belts</i>
-      </p>
-      <div className="grid md:grid-cols-4 grid-cols-1 gap-4 w-11/12 m-4">
-        {data.map((item, index) => (
+      <div className="md:w-11/12 w-full flex justify-between items-center mt-8">
+        <h3 className="text-xl font-semibold">Featured products</h3>
+        <button
+          className="hover:text-green-600 text-xs flex items-center gap-2"
+          onMouseEnter={() => setShowArrow(true)}
+          onMouseLeave={() => setShowArrow(false)}
+        >
+          <span>View all</span>
+          {showArrow && <IoArrowForwardOutline />}
+        </button>
+      </div>
+      <div className="grid md:grid-cols-5 grid-cols-2 gap-4 md:w-11/12 w-full m-4">
+        {products.map((item, index) => (
           <ProductCard
             key={index}
-            productID={item.id}
-            productName={item.name}
-            productImage={item.imageURL}
-            productPrice={item.price}
-            productDescription={item.description}
+            productID={item.productID}
+            productName={item.productName}
+            productSubtitle={item.productSubtitle}
+            productImage={item.productImage}
+            productPrice={item.productPrice}
+            productDescription={item.productDescription}
           />
         ))}
       </div>
       <br />
-      <button className="bg-black text-white px-4 py-3 flex gap-2 items-center font-semibold text-sm transition-transform transform hover:scale-105 focus:outline-none">
-        <span>View More</span>
-        <IoArrowForwardOutline />
-      </button>
     </div>
   );
 };
 
-export default EliteSection;
+export default FeaturedProducts;

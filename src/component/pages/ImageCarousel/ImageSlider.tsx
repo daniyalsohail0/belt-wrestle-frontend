@@ -1,5 +1,5 @@
 import React from "react";
-import productDefault from '../../../images/productDefault.jpg'
+import productDefault from '../../../images/il_794xN.5417743832_8sly.webp'
 
 const ImageSlider: React.FC = () => {
   return (

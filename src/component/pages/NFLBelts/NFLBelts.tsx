@@ -1,6 +1,6 @@
 import React from "react";
 import ProductCard from "../ProductCard/ProductCard";
-import data from "../../../utils/placeholderData";
+import data from "../../../utils/patchesData";
 import { IoArrowForwardOutline } from "react-icons/io5";
 
 const NFLBelts: React.FC = () => {
@@ -14,11 +14,12 @@ const NFLBelts: React.FC = () => {
         {data.map((item, index) => (
           <ProductCard
             key={index}
-            productID={item.id}
-            productName={item.name}
-            productImage={item.imageURL}
-            productPrice={item.price}
-            productDescription={item.description}
+            productID={item.productDescription}
+            productName={item.productName}
+            productSubtitle={item.productSubtitle}
+            productImage={item.productImage}
+            productPrice={item.productPrice}
+            productDescription={item.productDescription}
           />
         ))}
       </div>

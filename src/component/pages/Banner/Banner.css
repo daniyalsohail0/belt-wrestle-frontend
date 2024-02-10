@@ -1,0 +1,28 @@
+/* Banner.css */
+
+.slide-in {
+  animation: slideIn 1s ease-in-out;
+}
+
+.background {
+  background-image: url('../../../images/BE\ YOU\ OWN\ CHAMPION.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;;
+}
+
+@media (max-width: 768px) {
+  .background {
+    background-image: url('../../../images/mobileBanner.png'); /* Path to your mobile background image */
+    background-size: contain;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}

@@ -4,7 +4,7 @@ import { removeSavedItem } from "../../../state/savedItems/savedItemSlice";
 import { MdDelete } from "react-icons/md";
 
 interface Props {
-  id: number;
+  id: string;
   name: string;
   image: string;
   price: string;

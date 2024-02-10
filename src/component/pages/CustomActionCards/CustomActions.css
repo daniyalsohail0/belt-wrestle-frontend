@@ -1,0 +1,22 @@
+.patches-bg {
+    background-image: url('../../../images/custom-patches.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.stickers-bg {
+    background-image: url('../../../images/custom-patches-1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.3 ease;
+}
+
+.merchandise-bg {
+    background-image: url('../../../images/custom-patches-2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.3 ease;
+}

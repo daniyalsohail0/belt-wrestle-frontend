@@ -1,6 +1,6 @@
 import React, { ChangeEvent, FormEvent, useState } from "react";
 
-const ReviewForm = () => {
+const ReviewForm: React.FC = () => {
   const [title, setTitle] = useState<string>("");
   const [review, setReview] = useState<string>("");
   const [youtubeUrl, setYoutubeUrl] = useState<string>("");

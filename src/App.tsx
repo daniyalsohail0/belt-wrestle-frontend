@@ -10,12 +10,10 @@ import PrivacyPolicy from "./pages/privacy-policy";
 import TermsCondition from "./pages/terms";
 import ShippingPolicy from "./pages/shipping-policy";
 import RefundPolicy from "./pages/refund-policy";
-import AEWBelts from "./pages/aew-belts";
-import CNCBelts from "./pages/cnc-belts";
-import WWEBelts from "./pages/wwe-belts";
-import IWGPBelts from "./pages/iwgp-belts";
-import BoxingBelts from "./pages/boxing-belts";
-import UFCBelts from "./pages/ufc-belts";
+import CustomKeychains from "./pages/custom-keychains";
+import CustomPatches from "./pages/custom-patches";
+import CustomShirts from "./pages/custom-shirts";
+import PVCPatches from "./pages/pvc-patches";
 
 function App() {
   return (
@@ -28,12 +26,14 @@ function App() {
 
       {/* Collection Routes  */}
       <Route path="/collection">
-        <Route path="aew-belts" element={<AEWBelts />} />
-        <Route path="cnc-belts" element={<CNCBelts />} />
-        <Route path="wwe-belts" element={<WWEBelts />} />
-        <Route path="iwgp-belts" element={<IWGPBelts />} />
-        <Route path="boxing-belts" element={<BoxingBelts />} />
-        <Route path="ufc-belts" element={<UFCBelts />} />
+        <Route path="pvc-patches" element={<PVCPatches />} />
+      </Route>
+
+      {/* Custom products Routes */}
+      <Route path="/custom">
+        <Route path="keychains" element={<CustomKeychains />} />
+        <Route path="patches" element={<CustomPatches />} />
+        <Route path="tshirts" element={<CustomShirts />} />
       </Route>
 
       {/* Product Routes */}

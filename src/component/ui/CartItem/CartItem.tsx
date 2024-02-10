@@ -6,7 +6,7 @@ import { removeItem, updateQuantity } from "../../../state/cart/cartSlice";
 import { MdDelete } from "react-icons/md";
 
 interface CartItemProps {
-  id: number;
+  id: string;
   name: string;
   price: string;
   quantity: number;

@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../../../images/belt.png";
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa6";
 import { FaPinterestSquare, FaYoutube } from "react-icons/fa";
 import { IoLocationSharp } from "react-icons/io5";
@@ -9,12 +8,13 @@ import { MdEmail } from "react-icons/md";
 
 const Footer: React.FC = () => {
   return (
-    <footer>
+    <footer className="bg-[#0F0F0F] text-white">
       <div className="flex justify-center items-center">
         <div className="md:flex w-11/12 md:p-8 py-4 md:gap-4">
           <div>
-            <img src={logo} alt="edspareLogo" width={180} />
-            <p className="p-2 text-sm">
+            <h1 className="text-2xl font-semibold">Universal Makers</h1>
+            <br />
+            <p className="text-sm py-2">
               Wear the legacy, feel the prestige – our WWE and UFC belts embody
               the essence of true champions.
             </p>
@@ -33,7 +33,7 @@ const Footer: React.FC = () => {
             <div className="flex gap-2 items-center my-1 py-1">
               <MdEmail className="text-xl" />
               <span className="text-sm font-semibold">
-                info@beltwrestle.com
+                info@universalmakers.co.uk
               </span>
             </div>
             <br />
@@ -97,7 +97,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-center items-center bg-gray-100">
+      <div className="flex justify-center items-center bg-gray-900 text-white">
         <div className="w-11/12 md:flex justify-between items-center md:py-3 md:px-4 py-2 text-xs">
           <div>
             <span className="text-xs">

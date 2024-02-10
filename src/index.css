@@ -4,105 +4,44 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
 
-/* Reset some default styles for better consistency */
-body,
-h1,
-h2,
-h3,
-p,
-ul,
-ol,
-li {
-  margin: 0;
-  padding: 0;
-}
-
 /* Set a base font size and weight for the entire document */
 body {
-  font-size: 16px;
-  line-height: 1.6;
   font-family: "Open sans", sans-serif;
-  font-weight: 400; /* Default weight */
 }
 
-/* Heading Styles */
-h1 {
-  font-size: 32px;
-  font-weight: 800; /* Bold */
+.blue-glassmorphism {
+  background: rgb(39, 51, 89, 0.4);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
-h2 {
-  font-size: 24px;
-  margin-bottom: 15px;
-  font-weight: 700; /* Semi-bold */
+/* white glassmorphism */
+.white-glassmorphism {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
-h3 {
-  font-size: 20px;
-  margin-bottom: 15px;
-  font-weight: 600; /* Normal or regular */
+.eth-card {
+  background-color:#a099ff;
+  background-image: 
+    radial-gradient(at 83% 67%, rgb(152, 231, 156) 0, transparent 58%), 
+    radial-gradient(at 67% 20%, hsla(357,94%,71%,1) 0, transparent 59%), 
+    radial-gradient(at 88% 35%, hsla(222,81%,65%,1) 0, transparent 50%), 
+    radial-gradient(at 31% 91%, hsla(9,61%,61%,1) 0, transparent 52%), 
+    radial-gradient(at 27% 71%, hsla(336,91%,65%,1) 0, transparent 49%), 
+    radial-gradient(at 74% 89%, hsla(30,98%,65%,1) 0, transparent 51%), 
+    radial-gradient(at 53% 75%, hsla(174,94%,68%,1) 0, transparent 45%);
 }
 
-h4 {
-  font-size: 18px;
-  margin-bottom: 15px;
-  font-weight: 600; /* Normal or regular */
-}
-
-h5 {
-  font-size: 16px;
-  margin-bottom: 15px;
-  font-weight: 500; /* Medium */
-}
-
-h6 {
-  font-size: 14px;
-  margin-bottom: 15px;
-  font-weight: 500; /* Medium */
-}
-
-/* Body Text */
-p {
-  font-size: 16px;
-  margin-bottom: 15px;
-  font-weight: 400; /* Default weight */
-}
-
-/* Navigation and UI Elements */
-nav {
-  font-size: 16px;
-  font-weight: 500; /* Medium */
-}
-
-/* Buttons */
-button {
-  font-size: 16px;
-  font-weight: 600; /* Normal or regular */
-}
-
-/* Captions and Small Text */
-.caption {
-  font-size: 14px;
-  font-weight: 400; /* Default weight */
-}
-
-.small-text {
-  font-size: 12px;
-  font-weight: 400; /* Default weight */
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  /* Adjust font sizes or other styles for smaller screens */
-  body {
-    font-size: 14px;
-  }
-
-  h1 {
-    font-size: 28px;
-  }
-
-  /* Add more responsive styles as needed */
+.text-gradient {
+  background-color: #fff;
+  background-image: radial-gradient(at 4% 36%, hsla(0,0%,100%,1) 0, transparent 53%), radial-gradient(at 100% 60%, rgb(0, 0, 0) 0, transparent 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* Customize the scrollbar */

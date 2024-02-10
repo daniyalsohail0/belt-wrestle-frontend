@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface CartItem {
-  id: number;
+  id: string;
   name: string;
   price: string;
   imageUrl: string;
@@ -12,7 +12,7 @@ interface CartState {
   items: CartItem[];
 }
 
-const loadState = (): CartState => {
+const loadState = () : CartState => {
   try {
     const serializedState = localStorage.getItem("cartState");
     if (serializedState === null) {

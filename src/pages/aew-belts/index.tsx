@@ -3,7 +3,7 @@ import Layout from "../../layout";
 import Search from "../../component/ui/Search";
 import { IoFilterSharp } from "react-icons/io5";
 import { IoIosArrowDown } from "react-icons/io";
-import dummyProducts from "../../utils/dummyProducts";
+import dummyProducts from "../../utils/patchesData";
 import ProductCard from "../../component/pages/ProductCard/ProductCard";
 
 const AEWBelts: React.FC = () => {
@@ -33,52 +33,52 @@ const AEWBelts: React.FC = () => {
                 <IoIosArrowDown />
               </button>
               {filter && (
-                <div className="absolute bg-white shadow-xl w-[150px] mt-2">
+                <div className="absolute bg-white shadow-xl w-[150px] mt-2 z-[10]">
                   <ul>
                     <li
-                      className="p-1 hover:bg-gray-300 cursor-pointer"
+                      className="px-2 py-3 hover:bg-gray-100 cursor-pointer"
                       onClick={handleFilter}
                       value={`featured`}
                     >
                       Featured
                     </li>
                     <li
-                      className="p-1 hover:bg-gray-300 cursor-pointer"
+                      className="px-2 py-3 hover:bg-gray-100 cursor-pointer"
                       onClick={handleFilter}
                       value={`a-z`}
                     >
                       Alphabetically, A-Z
                     </li>
                     <li
-                      className="p-1 hover:bg-gray-300 cursor-pointer"
+                      className="px-2 py-3 hover:bg-gray-100 cursor-pointer"
                       onClick={handleFilter}
                       value={`z-a`}
                     >
                       Alphabetically, Z-A
                     </li>
                     <li
-                      className="p-1 hover:bg-gray-300 cursor-pointer"
+                      className="px-2 py-3 hover:bg-gray-100 cursor-pointer"
                       onClick={handleFilter}
                       value={`low`}
                     >
                       Price, low to high
                     </li>
                     <li
-                      className="p-1 hover:bg-gray-300 cursor-pointer"
+                      className="px-2 py-3 hover:bg-gray-100 cursor-pointer"
                       onClick={handleFilter}
                       value={`high`}
                     >
                       Price, high to low
                     </li>
                     <li
-                      className="p-1 hover:bg-gray-300 cursor-pointer"
+                      className="px-2 py-3 hover:bg-gray-100 cursor-pointer"
                       onClick={handleFilter}
                       value={`old`}
                     >
                       Date, old to new
                     </li>
                     <li
-                      className="p-1 hover:bg-gray-300 cursor-pointer"
+                      className="px-2 py-3 hover:bg-gray-100 cursor-pointer"
                       onClick={handleFilter}
                       value={`new`}
                     >
@@ -90,14 +90,15 @@ const AEWBelts: React.FC = () => {
             </div>
           </div>
           <div className="grid md:grid-cols-4 grid-cols-1 gap-4">
-            {dummyProducts.map((product, index) => (
+            {dummyProducts.map((item, index) => (
               <ProductCard
                 key={index}
-                productID={product.id}
-                productName={product.name}
-                productImage={product.imageURL}
-                productDescription={product.description}
-                productPrice={product.price}
+                productID={item.productDescription}
+                productName={item.productName}
+                productSubtitle={item.productSubtitle}
+                productImage={item.productImage}
+                productPrice={item.productPrice}
+                productDescription={item.productDescription}
               />
             ))}
           </div>

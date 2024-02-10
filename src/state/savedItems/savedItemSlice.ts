@@ -2,7 +2,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface SavedItem {
-  id: number;
+  id: string;
   name: string;
   price: string;
   imageUrl: string;
@@ -34,11 +34,11 @@ const savedItemsSlice = createSlice({
         }
       }
     },
-    removeSavedItem: (state, action: PayloadAction<number>) => {
+    removeSavedItem: (state, action: PayloadAction<string>) => {
       const idToRemove = action.payload;
 
       // Ensure that state.items is defined before calling find
-      if (state.items) {
+      if (state.items?.length) {
         state.items = state.items.filter((item) => item.id !== idToRemove);
       }
     },

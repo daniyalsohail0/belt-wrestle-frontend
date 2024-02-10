@@ -8,7 +8,7 @@ const Search: React.FC = () => {
     setInput(e.target.value);
   };
   return (
-    <div className="flex gap-3 items-center border-2 border-solid border-[#EBEBED] py-2 my-2">
+    <div className="flex gap-3 items-center rounded border-[1px] border-solid border-[#EBEBED] py-2 my-2">
       <CiSearch className="ml-2" />
       <input
         type="text"
