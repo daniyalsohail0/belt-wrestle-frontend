@@ -6,7 +6,7 @@ import { IoArrowForwardOutline } from "react-icons/io5";
 const LatestProducts: React.FC = () => {
   const [showArrow, setShowArrow] = useState<boolean>(false);
 
-  const products = data.slice(0,4)
+  const products = data.slice(0,5)
 
   return (
     <div className="flex flex-col justify-center items-center p-4">
@@ -21,7 +21,7 @@ const LatestProducts: React.FC = () => {
           {showArrow && <IoArrowForwardOutline />}
         </button>
       </div>
-      <div className="grid md:grid-cols-4 grid-cols-2 gap-4 md:w-11/12 w-full m-4">
+      <div className="grid md:grid-cols-5 grid-cols-2 gap-4 md:w-11/12 w-full m-4">
         {products.map((item, index) => (
           <ProductCard
             key={index}
