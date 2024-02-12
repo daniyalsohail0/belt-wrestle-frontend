@@ -2,20 +2,25 @@
 
 .slide-in {
   animation: slideIn 1s ease-in-out;
+  position: relative; /* Make sure the container is positioned */
 }
 
 .background {
-  background-image: url('../../../images/BE\ YOU\ OWN\ CHAMPION.png');
+  position: relative; /* Ensure proper layering */
+  background-image: url('../../../images/cover.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;;
+  background-position: center;
 }
 
-@media (max-width: 768px) {
-  .background {
-    background-image: url('../../../images/mobileBanner.png'); /* Path to your mobile background image */
-    background-size: contain;
-  }
+.background::before {
+  content: ""; /* Required for the pseudo-element */
+  position: absolute; /* Position it absolutely */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Background color with opacity */
 }
 
 @keyframes slideIn {

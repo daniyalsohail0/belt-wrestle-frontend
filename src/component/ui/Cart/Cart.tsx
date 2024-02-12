@@ -34,15 +34,15 @@ const Cart: React.FC = () => {
   return (
     <div className="relative p-1 cursor-pointer" ref={dropdownRef}>
       <button onClick={(event) => { event.stopPropagation(); dispatch(toggleCart()); }}>
-        <SlBag className="text-black text-lg mt-1" />
+        <SlBag className="text-gray-500 text-lg mt-1" />
       </button>
       {toggle.isOpen && (
-        <div className="fixed bg-white top-0 right-0 min-h-screen shadow-md z-[50] w-11/12 md:w-1/4 flex flex-col justify-between">
+        <div className="fixed bg-white text-black top-0 right-0 min-h-screen shadow-md z-[50] w-11/12 md:w-1/4 flex flex-col justify-between">
           <div>
             <div className="flex justify-between items-center w-full p-4">
               <h1 className="text-sm">My Cart</h1>
               <button className="p-1" onClick={() => dispatch(toggleCart())}>
-                <IoClose className="text-lg" />
+                <IoClose className="text-xl" />
               </button>
             </div>
             <div className="flex flex-col justify-center items-center gap-8">
@@ -63,7 +63,7 @@ const Cart: React.FC = () => {
             </div>
           </div>
           <div className="flex justify-center items-center">
-            <button className="bg-[#0A1D56] rounded text-white w-full p-2 m-4 text-sm">
+            <button className="bg-black rounded text-white w-full p-2 m-4 text-sm">
               Check out
             </button>
           </div>

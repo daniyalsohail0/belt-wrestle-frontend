@@ -25,7 +25,7 @@ const UserDropdown: React.FC = () => {
 
   return (
     <div
-      className="bg-gray-700 rounded-full p-2 cursor-pointer"
+      className="bg-gray-700 rounded-full p-2 cursor-pointer text-black"
       onClick={handleToggle}
       ref={dropdownRef}
     >

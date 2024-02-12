@@ -27,12 +27,12 @@ const Dropdown: React.FC<Props> = ({ name, list }) => {
   }, []);
 
   return (
-    <div className="relative inline-block text-sm" ref={dropdownRef}>
+    <div className="relative inline-block" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="focus:outline-none flex items-center"
       >
-        <span className="mr-2 text-sm">{name}</span>
+        <span className="mr-2 md:text-sm text-lg">{name}</span>
         <svg
           className={`fill-current h-4 w-4 inline-block transform ${
             isOpen ? "rotate-180" : ""

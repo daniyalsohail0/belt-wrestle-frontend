@@ -1,89 +1,86 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SavedItems from "../SavedItems/SavedItems";
 import Cart from "../Cart/Cart";
 import UserDropdown from "../UserDropdown/UserDropdown";
 import Dropdown from "../Dropdown/Dropdown";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
 import { HiMenuAlt4 } from "react-icons/hi";
 import MobileDropdown from "../Dropdown/MobileDropdown";
-import logo from '../../../images/branding/BWprimary logo.png'
+import logo from "../../../images/branding/BWprimary logo.png";
 
 const Navbar: React.FC = () => {
   const [toggle, setToggle] = useState<boolean>(false);
+  const [mode, setMode] = useState<boolean>(true);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname === "/") {
+      setMode(true);
+    } else {
+      setMode(false);
+    }
+  }, [location.pathname]);
+
+  console.log(location);
 
   const collectionDropdown = [
     {
-      name: "PVC Patches",
-      link: "/collection/pvc-patches",
+      name: "AEW Belts",
+      link: "/collection/aew-belts",
     },
     {
-      name: "IR Patches",
-      link: "/collection/ir-patches",
+      name: "CNC Belts",
+      link: "/collection/cnc-belts",
     },
     {
-      name: "Embroidery Patches",
-      link: "/collection/embroidery-patches",
+      name: "WWE Belts",
+      link: "/collection/wwe-belts",
     },
     {
-      name: "Laser Cut",
-      link: "/collection/laser-cut",
+      name: "IWGP Belts",
+      link: "/collection/iwgp-belts",
     },
     {
-      name: "Printed",
-      link: "/collection/printed",
-    },
-    {
-      name: "Reflective",
-      link: "/collection/reflective",
-    },
-    {
-      name: "American Made PVC",
-      link: "/collection/american-made-pvc",
-    },
-  ];
-
-  const customDropdown = [
-    {
-      name: "Customized Patches",
-      link: "/custom/patches",
-    },
-    {
-      name: "Customized Keychains",
-      link: "/custom/keychains",
+      name: "Boxing",
+      link: "/collection/boxing-belts",
     },
   ];
 
   return (
-    <nav className="flex flex-col justify-center items-center z-[1] bg-white">
+    <nav
+      className={
+        mode
+          ? `flex flex-col justify-center items-center z-[1] bg-black text-white`
+          : `flex flex-col justify-center items-center z-[1]`
+      }
+    >
       <div className="w-11/12 flex justify-between items-center p-2 my-2">
         {/* Remove or add content to the following div */}
         <div className="flex items-center gap-6">
           <Link to={`/`}>
-            <img src={logo} alt="logo" className="w-[175px]" />
+            <img
+              src={logo}
+              alt="logo"
+              className={mode ? `w-40 filter invert` : `w-40`}
+            />
           </Link>
           <div className="hidden md:block font-semibold pt-3">
             <ul className="flex gap-4 text-sm">
               <li>
-                <Dropdown name="Patches" list={collectionDropdown} />
+                <Dropdown name="Collection" list={collectionDropdown} />
               </li>
               <li>
-                <Dropdown name="Customized" list={customDropdown} />
+                <Link to={`/customized-belts`}>Customized Belts</Link>
               </li>
               <li>
-                <Link to={`/keychains`}>Keychains</Link>
+                <Link to={`/about-us`}>About Us</Link>
               </li>
               <li>
-                <Link to={`/blogs`}>T Shirts</Link>
+                <Link to={`/contact-us`}>Contact Us</Link>
               </li>
               <li>
-                <Link to={`/contact-us`}>Riffle Bags</Link>
-              </li>
-              <li>
-                <Link to={`/reviews`}>Flags</Link>
-              </li>
-              <li>
-                <Link to={`/blogs`}>Stickers</Link>
+                <Link to={`/blogs`}>Blogs</Link>
               </li>
             </ul>
           </div>
@@ -112,7 +109,7 @@ const Navbar: React.FC = () => {
           {toggle && (
             <div
               className="z-10 fixed -top-0 -right-2 p-3 w-[80vw] h-screen shadow-2xl md:hidden list-none
-      flex flex-col justify-start items-start bg-white animate-slide-in"
+      flex flex-col justify-start items-start bg-white animate-slide-in text-black"
             >
               <div
                 className="place-self-end py-2 px-4"
@@ -123,25 +120,19 @@ const Navbar: React.FC = () => {
               <div className="w-full py-2 pl-3 pr-4">
                 <ul className="flex flex-col gap-4 text-lg">
                   <li>
-                    <MobileDropdown name="Patches" list={collectionDropdown} />
+                    <MobileDropdown name="Collection" list={collectionDropdown} />
                   </li>
                   <li>
-                    <MobileDropdown name="Customized" list={customDropdown} />
+                    <Link to={`/customized-belts`}>Customized Belts</Link>
                   </li>
                   <li>
-                    <Link to={`/keychains`}>Keychains</Link>
+                    <Link to={`/about-us`}>About Us</Link>
                   </li>
                   <li>
-                    <Link to={`/blogs`}>T Shirts</Link>
+                    <Link to={`/contact-us`}>Contact Us</Link>
                   </li>
                   <li>
-                    <Link to={`/contact-us`}>Riffle Bags</Link>
-                  </li>
-                  <li>
-                    <Link to={`/reviews`}>Flags</Link>
-                  </li>
-                  <li>
-                    <Link to={`/blogs`}>Stickers</Link>
+                    <Link to={`/blogs`}>Blogs</Link>
                   </li>
                 </ul>
               </div>

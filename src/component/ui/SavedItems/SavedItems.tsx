@@ -45,9 +45,9 @@ const SavedItems: React.FC = () => {
       onClick={handleToggle}
       ref={dropdownRef}
     >
-      <FaHeart className="text-red-600 text-lg" />
+      <FaHeart className="text-red-600 text-xl" />
       {isOpen && (
-        <div className="fixed bg-white top-0 right-0 h-screen shadow-md z-[1] w-full md:w-1/4 flex flex-col justify-between gap-4">
+        <div className="fixed bg-white text-black top-0 right-0 min-h-screen shadow-md z-[50] w-11/12 md:w-1/4 flex flex-col justify-between">
           <div>
             <div className="flex justify-between items-center w-full p-4">
               <h1 className="text-lg">Saved Items</h1>
@@ -73,7 +73,7 @@ const SavedItems: React.FC = () => {
           </div>
           <div className="flex justify-center items-center">
             <button
-              className="bg-black text-white w-full p-2 m-4 text-sm"
+              className="bg-black text-white w-full p-2 m-4 text-sm rounded"
               onClick={handleClearSavedItems}
             >
               Clear
