@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Home from "./pages/home";
 import Faqs from "./pages/faqs";
 import ContactUs from "./pages/contact-us";
@@ -14,42 +14,57 @@ import CustomKeychains from "./pages/custom-keychains";
 import CustomPatches from "./pages/custom-patches";
 import CustomShirts from "./pages/custom-shirts";
 import PVCPatches from "./pages/pvc-patches";
+import { useEffect, useState } from "react";
+import Preloader from "./component/ui/Preloader/Preloader";
 
 function App() {
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const location = useLocation();
+
+  useEffect(() => {
+    // Simulate loading state on every page change
+    setIsLoading(true);
+
+    // Simulate loading delay
+    const delay = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000); // Adjust delay time as needed
+
+    // Cleanup function to clear timeout
+    return () => clearTimeout(delay);
+  }, [location]);
+
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/faqs" element={<Faqs />} />
-      <Route path="/contact-us" element={<ContactUs />} />
-      <Route path="/blogs" element={<BlogPage />} />
-      <Route path="/reviews" element={<ReviewsPage />} />
+    <>
+      {isLoading && <Preloader />}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/faqs" element={<Faqs />} />
+        <Route path="/contact-us" element={<ContactUs />} />
+        <Route path="/blogs" element={<BlogPage />} />
+        <Route path="/reviews" element={<ReviewsPage />} />
 
-      {/* Collection Routes  */}
-      <Route path="/collection">
-        <Route path="pvc-patches" element={<PVCPatches />} />
-      </Route>
+        <Route path="/collection">
+          <Route path="pvc-patches" element={<PVCPatches />} />
+        </Route>
 
-      {/* Custom products Routes */}
-      <Route path="/custom">
-        <Route path="keychains" element={<CustomKeychains />} />
-        <Route path="patches" element={<CustomPatches />} />
-        <Route path="tshirts" element={<CustomShirts />} />
-      </Route>
+        <Route path="/custom">
+          <Route path="keychains" element={<CustomKeychains />} />
+          <Route path="patches" element={<CustomPatches />} />
+          <Route path="tshirts" element={<CustomShirts />} />
+        </Route>
 
-      {/* Product Routes */}
-      <Route path="/product">
-        <Route path=":id" element={<ProductPage />} />
-      </Route>
+        <Route path="/product/:id" element={<ProductPage />} />
 
-      {/* Policy Routes */}
-      <Route path="/policies">
-        <Route path="cookie-policy" element={<CookieNotice />} />
-        <Route path="privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="terms-condition" element={<TermsCondition />} />
-        <Route path="shipping-policy" element={<ShippingPolicy />} />
-        <Route path="refund-policy" element={<RefundPolicy />} />
-      </Route>
-    </Routes>
+        <Route path="/policies">
+          <Route path="cookie-policy" element={<CookieNotice />} />
+          <Route path="privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="terms-condition" element={<TermsCondition />} />
+          <Route path="shipping-policy" element={<ShippingPolicy />} />
+          <Route path="refund-policy" element={<RefundPolicy />} />
+        </Route>
+      </Routes>
+    </>
   );
 }
 
