@@ -7,7 +7,7 @@ const patches: Product[] = [
     productSubtitle:
       "Heartbreaker, Tattoo Style Fully Embroidered Patch - 4 inch",
     productImage: require("../images/HeartBreaker.webp"),
-    productPrice: "£10.00",
+    productPrice: "10.00",
     productDescription:
       "The Heart Breaker patch encapsulates the tumultuous journey of love with its bold depiction of a pierced heart, penetrated by an arrow. Symbolizing both the pain of romantic wounds and the resilience that arises from them, this patch measures approximately 3.5 inches wide and 4 inches long. Designed with a hook fastener backing, it is ideal for adorning hats, bags, and jackets with loop fastener panels. Crafted in the UK by Tactical Gear Junkie, this patch does not include a matching loop fastener piece.",
     productCategory: "featured",
@@ -24,7 +24,7 @@ const patches: Product[] = [
       "Tactical Cupid Cherub with AR-15 and Glow in the Dark Night Vision - 4.25 inch Patch",
 
     productImage: require("../images/TacticalCherub.webp"),
-    productPrice: "£12.00",
+    productPrice: "12.00",
     productDescription:
       "Introducing the Tactical Cherub Patch from Universal Makers - a bold emblem merging celestial strength with tactical finesse. Standing at 4.25 inches tall and 4 inches wide, this patch features a striking design showcasing a winged cherub adorned in combat gear. Its dynamic presence adds a unique flair to any attire or gear it embellishes. Proudly made in the USA by Tactical Gear Junkie, this patch comes equipped with hook fastener backing, making it ideal for hats, bags, and jackets with loop fastener panels. Embrace your fierce and quirky side with this exceptional creation from Universal Makers. Please note, the matching loop fastener piece is not included.",
     productCategory: "featured",
@@ -41,7 +41,7 @@ const patches: Product[] = [
       "Abominable Snowman Tactical Yeti With AR-15 3.75 Fully Embroidered Patch",
 
     productImage: require("../images/SHOTTYYETI.webp"),
-    productPrice: "£11.00",
+    productPrice: "11.00",
     productDescription:
       "Elevate your mountain warfare gear with our Abominable Alpine Defender patch, meticulously embroidered to ensure both durability and style. This rugged yeti-inspired patch, crafted from high-quality materials, infuses a touch of untamed charisma to your hats, bags, and jackets. Conquer the peaks with this American-made masterpiece, essential for enthusiasts seeking a blend of military precision and mythical allure. Measuring 3.75 inches in height by 2.5 inches in width, it comes complete with hook fastener backing, making it a versatile addition to your collection. Please note that the matching loop fastener piece is not included.",
     productCategory: "featured",
@@ -58,7 +58,7 @@ const patches: Product[] = [
       "Deploying Fluff and Tough: The Tactical Polar Bear Patch – Where Furry Meets Fury!",
 
     productImage: require("../images/FUZZYPOLAR1.webp"),
-    productPrice: "£11.00",
+    productPrice: "11.00",
     productDescription:
       "Introducing the Tactical Cherub Patch from Universal Makers - a bold emblem merging celestial strength with tactical finesse. Standing at 4.25 inches tall and 4 inches wide, this patch features a striking design showcasing a winged cherub adorned in combat gear. Its dynamic presence adds a unique flair to any attire or gear it embellishes. Proudly made in the USA by Tactical Gear Junkie, this patch comes equipped with hook fastener backing, making it ideal for hats, bags, and jackets with loop fastener panels. Embrace your fierce and quirky side with this exceptional creation from Universal Makers. Please note, the matching loop fastener piece is not included.",
     productCategory: "featured",
@@ -74,7 +74,7 @@ const patches: Product[] = [
     productSubtitle:
       "Heartbreaker, Tattoo Style Fully Embroidered Patch - 4 inch",
     productImage: require("../images/HeartBreaker.webp"),
-    productPrice: "£10.00",
+    productPrice: "10.00",
     productDescription:
       "The Heart Breaker patch encapsulates the tumultuous journey of love with its bold depiction of a pierced heart, penetrated by an arrow. Symbolizing both the pain of romantic wounds and the resilience that arises from them, this patch measures approximately 3.5 inches wide and 4 inches long. Designed with a hook fastener backing, it is ideal for adorning hats, bags, and jackets with loop fastener panels. Crafted in the UK by Tactical Gear Junkie, this patch does not include a matching loop fastener piece.",
     productCategory: "featured",
@@ -91,7 +91,7 @@ const patches: Product[] = [
       "Tactical Cupid Cherub with AR-15 and Glow in the Dark Night Vision - 4.25 inch Patch",
 
     productImage: require("../images/TacticalCherub.webp"),
-    productPrice: "£12.00",
+    productPrice: "12.00",
     productDescription:
       "Introducing the Tactical Cherub Patch from Universal Makers - a bold emblem merging celestial strength with tactical finesse. Standing at 4.25 inches tall and 4 inches wide, this patch features a striking design showcasing a winged cherub adorned in combat gear. Its dynamic presence adds a unique flair to any attire or gear it embellishes. Proudly made in the USA by Tactical Gear Junkie, this patch comes equipped with hook fastener backing, making it ideal for hats, bags, and jackets with loop fastener panels. Embrace your fierce and quirky side with this exceptional creation from Universal Makers. Please note, the matching loop fastener piece is not included.",
     productCategory: "featured",
@@ -108,7 +108,7 @@ const patches: Product[] = [
       "Abominable Snowman Tactical Yeti With AR-15 3.75 Fully Embroidered Patch",
 
     productImage: require("../images/SHOTTYYETI.webp"),
-    productPrice: "£11.00",
+    productPrice: "11.00",
     productDescription:
       "Elevate your mountain warfare gear with our Abominable Alpine Defender patch, meticulously embroidered to ensure both durability and style. This rugged yeti-inspired patch, crafted from high-quality materials, infuses a touch of untamed charisma to your hats, bags, and jackets. Conquer the peaks with this American-made masterpiece, essential for enthusiasts seeking a blend of military precision and mythical allure. Measuring 3.75 inches in height by 2.5 inches in width, it comes complete with hook fastener backing, making it a versatile addition to your collection. Please note that the matching loop fastener piece is not included.",
     productCategory: "featured",
@@ -125,7 +125,7 @@ const patches: Product[] = [
       "Deploying Fluff and Tough: The Tactical Polar Bear Patch – Where Furry Meets Fury!",
 
     productImage: require("../images/FUZZYPOLAR1.webp"),
-    productPrice: "£11.00",
+    productPrice: "11.00",
     productDescription:
       "Introducing the Tactical Cherub Patch from Universal Makers - a bold emblem merging celestial strength with tactical finesse. Standing at 4.25 inches tall and 4 inches wide, this patch features a striking design showcasing a winged cherub adorned in combat gear. Its dynamic presence adds a unique flair to any attire or gear it embellishes. Proudly made in the USA by Tactical Gear Junkie, this patch comes equipped with hook fastener backing, making it ideal for hats, bags, and jackets with loop fastener panels. Embrace your fierce and quirky side with this exceptional creation from Universal Makers. Please note, the matching loop fastener piece is not included.",
     productCategory: "featured",

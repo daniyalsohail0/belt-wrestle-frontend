@@ -3,7 +3,7 @@ import Layout from "../../layout";
 import Search from "../../component/ui/Search";
 import { IoFilterSharp } from "react-icons/io5";
 import { IoIosArrowDown } from "react-icons/io";
-import dummyProducts from "../../utils/patchesData";
+import products from "../../utils/productsBelts";
 import ProductCard from "../../component/pages/ProductCard/ProductCard";
 
 const AEWBelts: React.FC = () => {
@@ -19,8 +19,8 @@ const AEWBelts: React.FC = () => {
   return (
     <Layout>
       <div className="flex justify-center items-center">
-        <div className="flex flex-col justify-center items-center md:w-3/4 w-11/12">
-          <h1 className="text-center">AEW Belts</h1>
+        <div className="flex flex-col justify-center items-center w-11/12">
+          <h1 className="text-center text-3xl font-bold">AEW Belts</h1>
           <div className="flex justify-between items-center w-full">
             <Search />
             <div className="relative inline-block text-sm">
@@ -90,10 +90,10 @@ const AEWBelts: React.FC = () => {
             </div>
           </div>
           <div className="grid md:grid-cols-4 grid-cols-1 gap-4">
-            {dummyProducts.map((item, index) => (
+            {products.map((item, index) => (
               <ProductCard
                 key={index}
-                productID={item.productDescription}
+                productID={item.productID}
                 productName={item.productName}
                 productSubtitle={item.productSubtitle}
                 productImage={item.productImage}

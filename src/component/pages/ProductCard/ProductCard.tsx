@@ -77,7 +77,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
   };
 
   return (
-    <div className="bg-white p-4 rounded-md md:m-4 m-1 border-[1px] border-gray-200">
+    <div className="bg-white p-4 rounded-md md:m-4 m-1">
       <div className="flex justify-center items-center">
         <img src={productImage} alt={productName} className="md:w-[250px] w-[190px] h-[200px]" />
       </div>
@@ -92,7 +92,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
             />
           </button>
         </div>
-        <p className="text-gray-500 text-sm mb-2 font-bold">{productPrice}</p>
+        <p className="text-gray-500 text-sm mb-2 font-bold">£{productPrice}</p>
         <div className="flex justify-between mt-auto">
           <Button handleClick={handleAddToCart}>Add to cart</Button>
         </div>
