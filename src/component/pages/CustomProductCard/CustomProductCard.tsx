@@ -17,7 +17,7 @@ interface ProductCardProps {
   productDescription: string;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({
+const CustomProductCard: React.FC<ProductCardProps> = ({
   productID,
   productName,
   productSubtitle,
@@ -87,7 +87,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
       </div>
       <div className="flex flex-col justify-between gap-2 h-[200px]">
         <div className="pt-3">
-          <Link to={`/products/${product.productID}`} state={product}>
+          <Link to={`/custom-products/${product.productID}`} state={product}>
             <h3 className="text-sm font-semibold mb-1 uppercase">
               {productName}
             </h3>
@@ -110,4 +110,4 @@ const ProductCard: React.FC<ProductCardProps> = ({
   );
 };
 
-export default ProductCard;
+export default CustomProductCard;

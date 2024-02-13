@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import SavedItems from "../SavedItems/SavedItems";
 import Cart from "../Cart/Cart";
 import UserDropdown from "../UserDropdown/UserDropdown";
-// import Dropdown from "../Dropdown/Dropdown";
 import { Link, useLocation } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
 import { HiMenuAlt4 } from "react-icons/hi";
-// import MobileDropdown from "../Dropdown/MobileDropdown";
 import logo from "../../../images/branding/BWprimary logo.png";
+// import Dropdown from "../Dropdown/Dropdown";
+// import MobileDropdown from "../Dropdown/MobileDropdown";
 
 const Navbar: React.FC = () => {
   const [toggle, setToggle] = useState<boolean>(false);
@@ -71,9 +71,9 @@ const Navbar: React.FC = () => {
               <li>
                 <Link to={`/customized-belts`}>Customized Belts</Link>
               </li>
-              <li>
+              {/* <li>
                 <Link to={`/about-us`}>About Us</Link>
-              </li>
+              </li> */}
               <li>
                 <Link to={`/contact-us`}>Contact Us</Link>
               </li>
@@ -123,9 +123,9 @@ const Navbar: React.FC = () => {
                   <li>
                     <Link to={`/customized-belts`}>Customized Belts</Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link to={`/about-us`}>About Us</Link>
-                  </li>
+                  </li> */}
                   <li>
                     <Link to={`/contact-us`}>Contact Us</Link>
                   </li>

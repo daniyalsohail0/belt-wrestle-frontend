@@ -22,17 +22,38 @@ import amex from "../../images/Amex.svg";
 import apple from "../../images/ApplePay.svg";
 import SubscribeEmail from "../../component/pages/SubscribeEmail/SubscribeEmail";
 import RecommendedProducts from "../../component/pages/RecommendedProducts/RecommmendedProducts";
-import products from "../../utils/productsBelts";
+import products from "../../utils/customProducts";
 import { Product } from "../../utils/productInterface";
 
 const paymentMethodImages = [gpay, paypal, visa, mastercard, amex, apple];
 
-const ProductPage: React.FC = () => {
+const CustomProductPage: React.FC = () => {
   const [loading, setLoading] = useState<number>(0);
   const [quantity, setQuantity] = useState<number>(1);
   const [product, setProduct] = useState<Product | null>(null);
+  const [message, setMessage] = useState<string>("");
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [error, setError] = useState<string>("");
+
   const params = useParams();
   const dispatch = useDispatch();
+
+  const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setMessage(e.target.value);
+  };
+
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files && event.target.files[0];
+    const allowedTypes = ["image/jpeg", "image/jpg", "image/png"];
+
+    if (file && allowedTypes.includes(file.type)) {
+      setSelectedFile(file);
+      setError("");
+    } else {
+      setSelectedFile(null);
+      setError("Please select a valid JPEG, JPG, or PNG file.");
+    }
+  };
 
   useEffect(() => {
     // Find the product by productID from the URL params
@@ -119,6 +140,30 @@ const ProductPage: React.FC = () => {
                   <IoAddCircleSharp className="text-xl text-green-600" />
                 </button>
               </div>
+              <form className="bg-gray-100 p-4 rounded">
+                <label>
+                  <h4 className="font-semibold py-2">
+                    Please tell us about your customizations
+                  </h4>
+                  <textarea
+                    value={message}
+                    name="notes"
+                    onChange={handleTextChange}
+                    className="w-full p-2 text-sm rounded border-[1px] border-solid border-gray-300 focus:outline-none"
+                  />
+                </label>
+                <label>
+                  <h4 className="font-semibold py-2">Upload files</h4>
+                  <input
+                  className="text-xs"
+                    type="file"
+                    onChange={handleFileChange}
+                    accept=".jpg, .jpeg, .png"
+                  />
+                  {error && <p style={{ color: "red" }}>{error}</p>}
+                  {selectedFile && <p>Selected file: {selectedFile.name}</p>}
+                </label>
+              </form>
               <div className="md:flex block gap-4">
                 <button
                   onClick={() => {}}
@@ -212,4 +257,4 @@ const ProductPage: React.FC = () => {
   );
 };
 
-export default ProductPage;
+export default CustomProductPage;

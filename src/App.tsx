@@ -16,6 +16,8 @@ import CustomShirts from "./pages/custom-shirts";
 import { useEffect, useState } from "react";
 import Preloader from "./component/ui/Preloader/Preloader";
 import AEWBelts from "./pages/aew-belts";
+import CustomProductPage from "./pages/custom-product";
+import CustomziedBelts from "./pages/customized-belts";
 
 function App() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -51,6 +53,7 @@ function App() {
           </Route> */}
 
           <Route path="/shop" element={<AEWBelts />} />
+          <Route path="/customized-belts" element={<CustomziedBelts />} />
 
           <Route path="/custom">
             <Route path="keychains" element={<CustomKeychains />} />
@@ -58,8 +61,11 @@ function App() {
             <Route path="tshirts" element={<CustomShirts />} />
           </Route>
 
-          <Route path="/product/:id" element={<ProductPage />} />
+          {/* Product Routes */}
+          <Route path="/products/:id" element={<ProductPage />} />
+          <Route path="/custom-products/:id" element={<CustomProductPage />} />
 
+          {/* Policy Routes */}
           <Route path="/policies">
             <Route path="cookie-policy" element={<CookieNotice />} />
             <Route path="privacy-policy" element={<PrivacyPolicy />} />

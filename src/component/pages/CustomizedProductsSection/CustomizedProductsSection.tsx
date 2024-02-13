@@ -1,17 +1,19 @@
 import React, { useState } from "react";
-import ProductCard from "../ProductCard/ProductCard";
-import featuredProducts from "../../../utils/featuredProducts";
+import customProducts from "../../../utils/customProducts";
 import { IoArrowForwardOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import CustomProductCard from "../CustomProductCard/CustomProductCard";
 
-const FeaturedProducts: React.FC = () => {
+const CustomizedProductsSection: React.FC = () => {
   const [showArrow, setShowArrow] = useState<boolean>(false);
+
+  const products = customProducts.slice(0,4)
 
   return (
     <div className="flex flex-col justify-center items-center p-4">
       <div className="md:w-11/12 w-full flex justify-between items-center mt-8">
         <h3 className="text-xl font-semibold">Featured products</h3>
-        <Link to={`/shop`}>
+        <Link to={`/customized-belts`}>
           <button
             className="hover:text-green-600 text-xs flex items-center gap-2"
             onMouseEnter={() => setShowArrow(true)}
@@ -23,8 +25,8 @@ const FeaturedProducts: React.FC = () => {
         </Link>
       </div>
       <div className="grid md:grid-cols-4 grid-cols-2 gap-0 md:w-11/12 w-full">
-        {featuredProducts.map((item, index) => (
-          <ProductCard
+        {products.map((item, index) => (
+          <CustomProductCard
             key={index}
             productID={item.productID}
             productName={item.productName}
@@ -40,4 +42,4 @@ const FeaturedProducts: React.FC = () => {
   );
 };
 
-export default FeaturedProducts;
+export default CustomizedProductsSection;

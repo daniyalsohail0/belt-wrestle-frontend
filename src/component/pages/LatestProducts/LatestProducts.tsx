@@ -22,7 +22,7 @@ const LatestProducts: React.FC = () => {
           </button>
         </Link>
       </div>
-      <div className="grid md:grid-cols-4 grid-cols-2 gap-0 w-full">
+      <div className="grid md:grid-cols-4 grid-cols-2 gap-0 md:w-11/12 w-full">
         {latestProducts.map((item, index) => (
           <ProductCard
             key={index}

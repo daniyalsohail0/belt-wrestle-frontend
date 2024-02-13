@@ -6,7 +6,8 @@ import SubscribeEmail from "../../component/pages/SubscribeEmail/SubscribeEmail"
 import CookieModal from "../../component/pages/CookieModal/CookieModal";
 import FeaturedProducts from "../../component/pages/EliteSection/EliteSection";
 import LatestProducts from "../../component/pages/LatestProducts/LatestProducts";
-import CustomActionCards from "../../component/pages/CustomActionCards/CustomActionCards";
+import CustomizeYourBelt from "../../component/pages/CustomizeYourBelt/CustomizeYourBelt";
+import CustomizedProductsSection from "../../component/pages/CustomizedProductsSection/CustomizedProductsSection";
 
 const Home: React.FC = () => {
   return (
@@ -14,7 +15,8 @@ const Home: React.FC = () => {
       <Banner />
       <FeaturedProducts />
       <LatestProducts />
-      <CustomActionCards />
+      <CustomizeYourBelt />
+      <CustomizedProductsSection />
       <BlogSection />
       <SubscribeEmail />
       <CookieModal />
