@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Layout from "../../layout";
 import { AiFillMinusCircle } from "react-icons/ai";
 import { IoAddCircleSharp } from "react-icons/io5";
@@ -7,7 +7,7 @@ import Reviews from "../../component/pages/Reviews/Reviews";
 import reviewsData from "../../utils/reviewsData";
 import { useDispatch } from "react-redux";
 import { addItem } from "../../state/cart/cartSlice";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { toggleCart } from "../../state/cartToggle/cartToggleSlice";
 import LoadingBar from "react-top-loading-bar";
 import { IoStarSharp } from "react-icons/io5";
@@ -22,16 +22,36 @@ import amex from "../../images/Amex.svg";
 import apple from "../../images/ApplePay.svg";
 import SubscribeEmail from "../../component/pages/SubscribeEmail/SubscribeEmail";
 import RecommendedProducts from "../../component/pages/RecommendedProducts/RecommmendedProducts";
+import products from '../../utils/productsBelts'
+import { Product } from "../../utils/productInterface";
 
 const paymentMethodImages = [gpay, paypal, visa, mastercard, amex, apple];
 
 const ProductPage: React.FC = () => {
   const [loading, setLoading] = useState<number>(0);
   const [quantity, setQuantity] = useState<number>(1);
+  const [product, setProduct] = useState<Product | null>(null);
+  const params = useParams()
   const dispatch = useDispatch();
-  const location = useLocation();
 
-  const product = location.state;
+  useEffect(() => {
+    // Find the product by productID from the URL params
+    const productID = params.id;
+    const foundProduct = products.find(
+      (product) => product.productID === productID
+    );
+    if (foundProduct) {
+      setProduct(foundProduct);
+    } else {
+      // Handle case where product is not found
+      console.error(`Product with ID ${productID} not found.`);
+    }
+  }, [params.id]);
+
+  if (!product) {
+    // Render loading state or error message
+    return <div>Loading...</div>;
+  }
 
   const handleAddToCart = async () => {
     setLoading(30); // Start loading animation
@@ -42,10 +62,10 @@ const ProductPage: React.FC = () => {
     // Dispatch the action to add to cart
     dispatch(
       addItem({
-        id: product.productID,
-        name: product.productName,
-        price: product.productPrice,
-        imageUrl: product.productImage,
+        id: product?.productID,
+        name: product?.productName,
+        price: product?.productPrice,
+        imageUrl: product?.productImage,
         quantity: 1,
       })
     );

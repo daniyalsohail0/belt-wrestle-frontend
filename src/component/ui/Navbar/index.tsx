@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import SavedItems from "../SavedItems/SavedItems";
 import Cart from "../Cart/Cart";
 import UserDropdown from "../UserDropdown/UserDropdown";
-import Dropdown from "../Dropdown/Dropdown";
+// import Dropdown from "../Dropdown/Dropdown";
 import { Link, useLocation } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
 import { HiMenuAlt4 } from "react-icons/hi";
-import MobileDropdown from "../Dropdown/MobileDropdown";
+// import MobileDropdown from "../Dropdown/MobileDropdown";
 import logo from "../../../images/branding/BWprimary logo.png";
 
 const Navbar: React.FC = () => {
@@ -22,30 +22,28 @@ const Navbar: React.FC = () => {
     }
   }, [location.pathname]);
 
-  console.log(location);
-
-  const collectionDropdown = [
-    {
-      name: "AEW Belts",
-      link: "/collection/aew-belts",
-    },
-    {
-      name: "CNC Belts",
-      link: "/collection/cnc-belts",
-    },
-    {
-      name: "WWE Belts",
-      link: "/collection/wwe-belts",
-    },
-    {
-      name: "IWGP Belts",
-      link: "/collection/iwgp-belts",
-    },
-    {
-      name: "Boxing",
-      link: "/collection/boxing-belts",
-    },
-  ];
+  // const collectionDropdown = [
+  //   {
+  //     name: "AEW Belts",
+  //     link: "/collection/aew-belts",
+  //   },
+  //   {
+  //     name: "CNC Belts",
+  //     link: "/collection/cnc-belts",
+  //   },
+  //   {
+  //     name: "WWE Belts",
+  //     link: "/collection/wwe-belts",
+  //   },
+  //   {
+  //     name: "IWGP Belts",
+  //     link: "/collection/iwgp-belts",
+  //   },
+  //   {
+  //     name: "Boxing",
+  //     link: "/collection/boxing-belts",
+  //   },
+  // ];
 
   return (
     <nav
@@ -68,7 +66,7 @@ const Navbar: React.FC = () => {
           <div className="hidden md:block font-semibold pt-3">
             <ul className="flex gap-4 text-sm">
               <li>
-                <Dropdown name="Collection" list={collectionDropdown} />
+                <Link to={`/shop`}>Shop</Link>
               </li>
               <li>
                 <Link to={`/customized-belts`}>Customized Belts</Link>
@@ -120,7 +118,7 @@ const Navbar: React.FC = () => {
               <div className="w-full py-2 pl-3 pr-4">
                 <ul className="flex flex-col gap-4 text-lg">
                   <li>
-                    <MobileDropdown name="Collection" list={collectionDropdown} />
+                    <Link to={`/shop`}>Shop</Link>
                   </li>
                   <li>
                     <Link to={`/customized-belts`}>Customized Belts</Link>

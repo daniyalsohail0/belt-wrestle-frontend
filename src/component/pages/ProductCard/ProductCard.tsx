@@ -77,22 +77,30 @@ const ProductCard: React.FC<ProductCardProps> = ({
   };
 
   return (
-    <div className="bg-white p-4 rounded-md md:m-4 m-1">
+    <div className="bg-white md:p-4 py-4 px-0 rounded-md md:m-4 m-1 h-[400px]">
       <div className="flex justify-center items-center">
-        <img src={productImage} alt={productName} className="md:w-[250px] w-[190px] h-[200px]" />
+        <img
+          src={productImage}
+          alt={productName}
+          className="md:w-[250px] w-[190px] h-[200px]"
+        />
       </div>
-      <div className="flex flex-col justify-between gap-2 h-[150px]">
-        <div className="pt-3 flex justify-between items-center">
+      <div className="flex flex-col justify-between gap-2 h-[200px]">
+        <div className="pt-3">
           <Link to={`/product/${product.productID}`} state={product}>
-            <h3 className="text-sm font-semibold mb-1">{productName}</h3>
+            <h3 className="text-sm font-semibold mb-1 uppercase">
+              {productName}
+            </h3>
           </Link>
+          <p className="text-gray-500 text-sm mb-2 font-bold">
+            £{productPrice}
+          </p>
           <button onClick={handleSave}>
             <FaHeart
               className={savedClicked ? "text-red-600" : "text-gray-300"}
             />
           </button>
         </div>
-        <p className="text-gray-500 text-sm mb-2 font-bold">£{productPrice}</p>
         <div className="flex justify-between mt-auto">
           <Button handleClick={handleAddToCart}>Add to cart</Button>
         </div>

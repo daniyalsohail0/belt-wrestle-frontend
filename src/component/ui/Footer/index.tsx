@@ -5,6 +5,7 @@ import { FaPinterestSquare, FaYoutube } from "react-icons/fa";
 import { IoLocationSharp } from "react-icons/io5";
 import { IoCall } from "react-icons/io5";
 import { MdEmail } from "react-icons/md";
+import logo from "../../../images/branding/BWprimary logo.png";
 
 const Footer: React.FC = () => {
   return (
@@ -12,7 +13,11 @@ const Footer: React.FC = () => {
       <div className="flex justify-center items-center">
         <div className="md:flex w-11/12 md:p-8 py-4 md:gap-4">
           <div>
-            <h1 className="text-2xl font-semibold">Universal Makers</h1>
+          <img
+              src={logo}
+              alt="logo"
+              className={`w-40 filter invert`}
+            />
             <br />
             <p className="text-sm py-2">
               Wear the legacy, feel the prestige – our WWE and UFC belts embody
@@ -33,7 +38,7 @@ const Footer: React.FC = () => {
             <div className="flex gap-2 items-center my-1 py-1">
               <MdEmail className="text-xl" />
               <span className="text-sm font-semibold">
-                info@universalmakers.co.uk
+                info@beltwrestle.com
               </span>
             </div>
             <br />

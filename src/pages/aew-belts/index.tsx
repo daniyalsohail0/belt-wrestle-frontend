@@ -16,11 +16,14 @@ const AEWBelts: React.FC = () => {
   const handleFilter = () => {
     console.log(`Filter clicked`);
   };
+
+  console.log(products.length);
+
   return (
     <Layout>
       <div className="flex justify-center items-center">
         <div className="flex flex-col justify-center items-center w-11/12">
-          <h1 className="text-center text-3xl font-bold">AEW Belts</h1>
+          <h1 className="text-center text-3xl font-bold m-4 py-4">Shop</h1>
           <div className="flex justify-between items-center w-full">
             <Search />
             <div className="relative inline-block text-sm">

@@ -28,7 +28,7 @@ function App() {
     // Simulate loading delay
     const delay = setTimeout(() => {
       setIsLoading(false);
-    }, 1000); // Adjust delay time as needed
+    }, 500); // Adjust delay time as needed
 
     // Cleanup function to clear timeout
     return () => clearTimeout(delay);
@@ -46,9 +46,11 @@ function App() {
           <Route path="/blogs" element={<BlogPage />} />
           <Route path="/reviews" element={<ReviewsPage />} />
 
-          <Route path="/collection">
+          {/* <Route path="/collection">
             <Route path="aew-belts" element={<AEWBelts />} />
-          </Route>
+          </Route> */}
+
+          <Route path="/shop" element={<AEWBelts />} />
 
           <Route path="/custom">
             <Route path="keychains" element={<CustomKeychains />} />

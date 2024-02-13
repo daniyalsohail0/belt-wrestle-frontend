@@ -22,13 +22,13 @@ const SubscribeEmail: React.FC = () => {
 
   return (
     <div className="bg-gray-200 flex flex-col justify-center items-center mt-6 py-6">
-      <h1 className="text-center px-4 py-6 text-2xl font-bold uppercase">
+      <h1 className="text-center p-6 text-2xl font-bold uppercase">
         Join the universal club
       </h1>
       <p className="text-center text-sm">
         Subscribe if you want to get latest updates in your inbox!
       </p>
-      <form className="my-3">
+      <form className="my-3 px-3">
         <div className="flex justify-center items-center gap-2 my-2">
           <label className="flex items-center">
             <input
@@ -37,7 +37,7 @@ const SubscribeEmail: React.FC = () => {
               checked={selectedOption === "Patches"}
               onChange={() => handleOptionChange("Patches")}
             />
-            <span className="ml-2 text-sm font-semibold">Patches</span>
+            <span className="ml-2 text-sm font-semibold">Custom Belts</span>
           </label>
           <label className="flex items-center">
             <input
@@ -46,7 +46,7 @@ const SubscribeEmail: React.FC = () => {
               checked={selectedOption === "Keychains"}
               onChange={() => handleOptionChange("Keychains")}
             />
-            <span className="ml-2 text-sm font-semibold">Keychains</span>
+            <span className="ml-2 text-sm font-semibold">Ready Made Belts</span>
           </label>
         </div>
         <label className="flex gap-2 my-3">
