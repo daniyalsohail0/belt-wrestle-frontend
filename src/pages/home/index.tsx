@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "../../layout";
 import Banner from "../../component/pages/Banner/Banner";
-import BlogSection from "../../component/pages/BlogSection/BlogSection";
+// import BlogSection from "../../component/pages/BlogSection/BlogSection";
 import SubscribeEmail from "../../component/pages/SubscribeEmail/SubscribeEmail";
 import CookieModal from "../../component/pages/CookieModal/CookieModal";
 import FeaturedProducts from "../../component/pages/EliteSection/EliteSection";
@@ -17,7 +17,7 @@ const Home: React.FC = () => {
       <LatestProducts />
       <CustomizeYourBelt />
       <CustomizedProductsSection />
-      <BlogSection />
+      {/* <BlogSection /> */}
       <SubscribeEmail />
       <CookieModal />
     </Layout>
