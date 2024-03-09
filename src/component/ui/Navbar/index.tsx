@@ -123,14 +123,8 @@ const Navbar: React.FC = () => {
                   <li>
                     <Link to={`/customized-belts`}>Customized Belts</Link>
                   </li>
-                  {/* <li>
-                    <Link to={`/about-us`}>About Us</Link>
-                  </li> */}
                   <li>
                     <Link to={`/contact-us`}>Contact Us</Link>
-                  </li>
-                  <li>
-                    <Link to={`/blogs`}>Blogs</Link>
                   </li>
                 </ul>
               </div>

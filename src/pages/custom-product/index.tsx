@@ -22,7 +22,7 @@ import amex from "../../images/Amex.svg";
 import apple from "../../images/ApplePay.svg";
 import SubscribeEmail from "../../component/pages/SubscribeEmail/SubscribeEmail";
 import RecommendedProducts from "../../component/pages/RecommendedProducts/RecommmendedProducts";
-import products from "../../utils/customProducts";
+import customProducts from "../../utils/customProducts";
 import { Product } from "../../utils/productInterface";
 
 const paymentMethodImages = [gpay, paypal, visa, mastercard, amex, apple];
@@ -58,7 +58,7 @@ const CustomProductPage: React.FC = () => {
   useEffect(() => {
     // Find the product by productID from the URL params
     const productID = params.id;
-    const foundProduct = products.find(
+    const foundProduct = customProducts.find(
       (product) => product.productID === productID
     );
     if (foundProduct) {

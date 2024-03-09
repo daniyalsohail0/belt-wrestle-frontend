@@ -3,21 +3,17 @@ import Home from "./pages/home";
 import Faqs from "./pages/faqs";
 import ContactUs from "./pages/contact-us";
 import ProductPage from "./pages/product";
-import BlogPage from "./pages/blog";
 import ReviewsPage from "./pages/reviews";
 import CookieNotice from "./pages/cookie-notice";
 import PrivacyPolicy from "./pages/privacy-policy";
 import TermsCondition from "./pages/terms";
 import ShippingPolicy from "./pages/shipping-policy";
 import RefundPolicy from "./pages/refund-policy";
-import CustomKeychains from "./pages/custom-keychains";
-import CustomPatches from "./pages/custom-patches";
-import CustomShirts from "./pages/custom-shirts";
 import { useEffect, useState } from "react";
 import Preloader from "./component/ui/Preloader/Preloader";
-import AEWBelts from "./pages/aew-belts";
 import CustomProductPage from "./pages/custom-product";
 import CustomziedBelts from "./pages/customized-belts";
+import Shop from "./pages/shop";
 
 function App() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -45,27 +41,23 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/faqs" element={<Faqs />} />
           <Route path="/contact-us" element={<ContactUs />} />
-          <Route path="/blogs" element={<BlogPage />} />
           <Route path="/reviews" element={<ReviewsPage />} />
 
-          {/* <Route path="/collection">
-            <Route path="aew-belts" element={<AEWBelts />} />
-          </Route> */}
-
-          <Route path="/shop" element={<AEWBelts />} />
+          {/** Products Route */}
+          <Route path="/shop" element={<Shop />} />
           <Route path="/customized-belts" element={<CustomziedBelts />} />
+          
 
-          <Route path="/custom">
-            <Route path="keychains" element={<CustomKeychains />} />
-            <Route path="patches" element={<CustomPatches />} />
-            <Route path="tshirts" element={<CustomShirts />} />
+          {/** Checkout Process Routes */}
+          <Route path="/checkout">
+
           </Route>
 
-          {/* Product Routes */}
+          {/** Product Routes */}
           <Route path="/products/:id" element={<ProductPage />} />
           <Route path="/custom-products/:id" element={<CustomProductPage />} />
 
-          {/* Policy Routes */}
+          {/** Policy Routes */}
           <Route path="/policies">
             <Route path="cookie-policy" element={<CookieNotice />} />
             <Route path="privacy-policy" element={<PrivacyPolicy />} />

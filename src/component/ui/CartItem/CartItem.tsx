@@ -8,7 +8,7 @@ import { MdDelete } from "react-icons/md";
 interface CartItemProps {
   id: string;
   name: string;
-  price: string;
+  price: number;
   quantity: number;
   img: string | null;
 }
@@ -37,7 +37,7 @@ const CartItem: React.FC<CartItemProps> = ({
         name: name,
         price: price,
         imageUrl: imageUrl,
-        quantity: count,
+        quantity: updatedCount,
       })
     );
   };
@@ -52,7 +52,7 @@ const CartItem: React.FC<CartItemProps> = ({
         name: name,
         price: price,
         imageUrl: imageUrl,
-        quantity: count,
+        quantity: updatedCount,
       })
     );
   };

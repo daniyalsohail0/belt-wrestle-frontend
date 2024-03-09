@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import ProductCard from "../ProductCard/ProductCard";
-import latestProducts from "../../../utils/latestProducts";
+import latestProducts from "../../../utils/productsBelts";
 import { IoArrowForwardOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
 const LatestProducts: React.FC = () => {
   const [showArrow, setShowArrow] = useState<boolean>(false);
+
+  const data = latestProducts.slice(0,4)
 
   return (
     <div className="flex flex-col justify-center items-center p-4">
@@ -23,7 +25,7 @@ const LatestProducts: React.FC = () => {
         </Link>
       </div>
       <div className="grid md:grid-cols-4 grid-cols-2 gap-0 md:w-11/12 w-full">
-        {latestProducts.map((item, index) => (
+        {data.map((item, index) => (
           <ProductCard
             key={index}
             productID={item.productID}

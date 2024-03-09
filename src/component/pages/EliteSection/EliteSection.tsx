@@ -10,7 +10,7 @@ const FeaturedProducts: React.FC = () => {
   return (
     <div className="flex flex-col justify-center items-center p-4">
       <div className="md:w-11/12 w-full flex justify-between items-center mt-8">
-        <h3 className="text-xl font-semibold">Featured products</h3>
+        <h3 className="text-2xl font-semibold">Featured products</h3>
         <Link to={`/shop`}>
           <button
             className="hover:text-green-600 text-xs flex items-center gap-2"
@@ -22,7 +22,7 @@ const FeaturedProducts: React.FC = () => {
           </button>
         </Link>
       </div>
-      <div className="grid md:grid-cols-4 grid-cols-2 gap-0 md:w-11/12 w-full">
+      <div className="grid md:grid-cols-4 grid-cols-2 gap-x-8 md:w-11/12 w-full">
         {featuredProducts.map((item, index) => (
           <ProductCard
             key={index}

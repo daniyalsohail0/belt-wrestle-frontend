@@ -4,7 +4,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 interface SavedItem {
   id: string;
   name: string;
-  price: string;
+  price: number;
   imageUrl: string;
 }
 

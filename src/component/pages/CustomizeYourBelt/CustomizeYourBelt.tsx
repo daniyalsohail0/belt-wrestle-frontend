@@ -37,7 +37,7 @@ const CustomizeYourBelt: React.FC = () => {
             creating your own custom championship belt with Belt Wrestle.
           </p>
           <Link to={`/customized-belts`} className="p-4">
-            <button className="text-sm font-semibold px-4 py-3 bg-blue-900 rounded text-white transition-transform transform hover:scale-105">
+            <button className="text-sm font-semibold px-4 py-3 bg-black text-white transition-transform transform hover:scale-105">
               View Custom Belts
             </button>
           </Link>

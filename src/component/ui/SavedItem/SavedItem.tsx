@@ -7,7 +7,7 @@ interface Props {
   id: string;
   name: string;
   image: string;
-  price: string;
+  price: number;
 }
 
 const SavedItem: React.FC<Props> = ({ id, name, image, price }) => {
