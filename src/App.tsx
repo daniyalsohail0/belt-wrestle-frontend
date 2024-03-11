@@ -14,6 +14,8 @@ import Preloader from "./component/ui/Preloader/Preloader";
 import CustomProductPage from "./pages/custom-product";
 import CustomziedBelts from "./pages/customized-belts";
 import Shop from "./pages/shop";
+import PaymentSuccess from "./pages/payment-success";
+import PaymentFailure from "./pages/payment-failure";
 
 function App() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -50,7 +52,8 @@ function App() {
 
           {/** Checkout Process Routes */}
           <Route path="/checkout">
-
+            <Route path="success" element={<PaymentSuccess />} />
+            <Route path="failure" element={<PaymentFailure />} />
           </Route>
 
           {/** Product Routes */}

@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../../layout";
-import { AiFillMinusCircle } from "react-icons/ai";
-import { IoAddCircleSharp } from "react-icons/io5";
-import { FaHeart } from "react-icons/fa6";
+import { FiMinus } from "react-icons/fi";
+import { IoMdAdd } from "react-icons/io";
 import Reviews from "../../component/pages/Reviews/Reviews";
 import reviewsData from "../../utils/reviewsData";
 import { useDispatch } from "react-redux";
@@ -24,6 +23,9 @@ import SubscribeEmail from "../../component/pages/SubscribeEmail/SubscribeEmail"
 import RecommendedProducts from "../../component/pages/RecommendedProducts/RecommmendedProducts";
 import products from "../../utils/productsBelts";
 import { Product } from "../../utils/productInterface";
+import { loadStripe } from "@stripe/stripe-js";
+import { useSelector } from "react-redux";
+import { RootState } from "../../state/store";
 
 const paymentMethodImages = [gpay, paypal, visa, mastercard, amex, apple];
 
@@ -33,6 +35,8 @@ const ProductPage: React.FC = () => {
   const [product, setProduct] = useState<Product | null>(null);
   const params = useParams();
   const dispatch = useDispatch();
+
+  const cart = useSelector((state: RootState) => state.cart);
 
   useEffect(() => {
     // Find the product by productID from the URL params
@@ -76,6 +80,50 @@ const ProductPage: React.FC = () => {
     dispatch(toggleCart());
   };
 
+  const handleStripePayment = async () => {
+    try {
+      const stripe = await loadStripe(
+        "pk_test_51Oqev2Jt3qytHQNKncRTiT57POkwRtlWAM5rbhqomOYskX7a4xMiX2ppFjpfVsRIgTnrMxhYBeQJ3KBAU3MiR9DM00kmZSZXrd"
+      );
+
+      const body = {
+        products: cart.items,
+        totalAmount: cart.totalPrice,
+      };
+
+      const headers = { "Content-Type": "application/json" };
+
+      const response = await fetch(
+        `http://localhost:8080/api/v1/stripe-checkout`,
+        {
+          method: "POST",
+          headers: headers,
+          body: JSON.stringify(body),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to initiate Stripe session");
+      }
+
+      const session = await response.json();
+
+      if (!session || !session.id) {
+        throw new Error("Invalid response from server");
+      }
+
+      const result = await stripe?.redirectToCheckout({
+        sessionId: session.id,
+      });
+
+      if (result && result.error) {
+        throw new Error(result.error.message);
+      }
+    } catch (error) {
+      console.error("Stripe Payment Error:", error);
+    }
+  };
+
   return (
     <Layout>
       <div className="flex justify-center items-center">
@@ -101,40 +149,36 @@ const ProductPage: React.FC = () => {
                 <IoStarSharp className="text-xs text-yellow-500" />
                 <span className="text-xs">(4.6/5.0 rating)</span>
               </div>
-              <span className="font-bold text-2xl text-blue-900">
+              <span className="text-2xl underline">
                 Price: £{product.productPrice}
               </span>
-              <div className="flex gap-2 items-center">
+              <div className="flex gap-3 justify-center items-center border-[1px] border-black p-2 w-[100px]">
                 {quantity === 1 ? (
                   <button disabled onClick={() => setQuantity(quantity - 1)}>
-                    <AiFillMinusCircle className="text-xl text-red-400" />
+                    <FiMinus className="text-xl" />
                   </button>
                 ) : (
                   <button onClick={() => setQuantity(quantity - 1)}>
-                    <AiFillMinusCircle className="text-xl text-red-500" />
+                    <FiMinus className="text-xl" />
                   </button>
                 )}
                 <span className="font-bold">{quantity}</span>
                 <button onClick={() => setQuantity(quantity + 1)}>
-                  <IoAddCircleSharp className="text-xl text-green-600" />
+                  <IoMdAdd className="text-xl" />
                 </button>
               </div>
               <div className="md:flex block gap-4">
                 <button
-                  onClick={() => {}}
-                  className="flex gap-4 rounded justify-center items-center text-sm font-semibold md:w-1/3 w-full my-2 bg-white px-3 py-2 hover:scale-105 transition-transform border-[1px] border-solid border-gray-200"
-                >
-                  <FaHeart className="text-red-600" />
-                  Add to wishlist
-                </button>
-                <button
-                  className="bg-[#379237] rounded text-white text-sm font-semibold md:w-1/3 w-full my-2 px-3 py-3 hover:scale-105 transition-transform flex justify-center items-center gap-2"
+                  className="bg-[#379237] text-white text-sm font-semibold md:w-1/2 w-full my-2 px-3 py-3 hover:scale-105 transition-transform flex justify-center items-center gap-2"
                   onClick={handleAddToCart}
                 >
                   <SlBag className="text-white" />
                   <span>Add to cart</span>
                 </button>
-                <button className="bg-[#0A1D56] text-white text-sm font-semibold md:w-1/3 w-full my-2 px-3 py-3 rounded hover:scale-105 transition-transform">
+                <button
+                  onClick={handleStripePayment}
+                  className="bg-[#0A1D56] text-white text-sm font-semibold md:w-1/2 w-full my-2 px-3 py-3 hover:scale-105 transition-transform"
+                >
                   Checkout
                 </button>
               </div>

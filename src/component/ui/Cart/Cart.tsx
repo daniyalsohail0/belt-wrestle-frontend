@@ -6,11 +6,12 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../../state/store";
 import { toggleCart } from "../../../state/cartToggle/cartToggleSlice";
 import { useDispatch } from "react-redux";
+import { loadStripe } from "@stripe/stripe-js";
 
 const Cart: React.FC = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const state = useSelector((state: RootState) => state.cart);
+  const cart = useSelector((state: RootState) => state.cart);
   const toggle = useSelector((state: RootState) => state.cartToggle);
   const dispatch = useDispatch();
 
@@ -35,7 +36,49 @@ const Cart: React.FC = () => {
     };
   }, [handleClickOutside]);
 
-  console.log(state);
+  const handleStripePayment = async () => {
+    try {
+      const stripe = await loadStripe(
+        "pk_test_51Oqev2Jt3qytHQNKncRTiT57POkwRtlWAM5rbhqomOYskX7a4xMiX2ppFjpfVsRIgTnrMxhYBeQJ3KBAU3MiR9DM00kmZSZXrd"
+      );
+
+      const body = {
+        products: cart.items,
+        totalAmount: cart.totalPrice,
+      };
+
+      const headers = { "Content-Type": "application/json" };
+
+      const response = await fetch(
+        `http://localhost:8080/api/v1/stripe-checkout`,
+        {
+          method: "POST",
+          headers: headers,
+          body: JSON.stringify(body),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to initiate Stripe session");
+      }
+
+      const session = await response.json();
+
+      if (!session || !session.id) {
+        throw new Error("Invalid response from server");
+      }
+
+      const result = await stripe?.redirectToCheckout({
+        sessionId: session.id,
+      });
+
+      if (result && result.error) {
+        throw new Error(result.error.message);
+      }
+    } catch (error) {
+      console.error("Stripe Payment Error:", error);
+    }
+  };
 
   return (
     <div className="relative p-1 cursor-pointer" ref={dropdownRef}>
@@ -58,10 +101,10 @@ const Cart: React.FC = () => {
               </button>
             </div>
             <div className="flex flex-col justify-center items-center gap-8">
-              {state.items.length === 0 ? (
+              {cart.items.length === 0 ? (
                 <>Your cart is empty</>
               ) : (
-                state.items.map((item, index) => (
+                cart.items.map((item, index) => (
                   <CartItem
                     key={index}
                     id={item.id}
@@ -78,9 +121,9 @@ const Cart: React.FC = () => {
           <div className="flex flex-col justify-center items-center w-11/12">
             <div className="w-full flex justify-between gap-4">
               <span className="underline">Subtotal:</span>
-              <span className="text-gray-600 font-bold">£{state.totalPrice}</span>
+              <span className="text-gray-600 font-bold">£{cart.totalPrice}</span>
             </div>
-            <button className="bg-black rounded text-white w-full p-2 m-4 text-sm">
+            <button onClick={handleStripePayment} className="bg-black rounded text-white w-full p-2 m-4 text-sm">
               Check out
             </button>
           </div>
