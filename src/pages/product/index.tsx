@@ -94,7 +94,7 @@ const ProductPage: React.FC = () => {
       const headers = { "Content-Type": "application/json" };
 
       const response = await fetch(
-        `http://localhost:8080/api/v1/stripe-checkout`,
+        `http://18.130.230.133/api/v1/stripe-checkout`,
         {
           method: "POST",
           headers: headers,
