@@ -94,7 +94,7 @@ const ProductPage: React.FC = () => {
       const headers = { "Content-Type": "application/json" };
 
       const response = await fetch(
-        `http://18.130.230.133/api/v1/stripe-checkout`,
+        `https://beltwrestle-api.co.uk/api/v1/stripe-checkout`,
         {
           method: "POST",
           headers: headers,
