@@ -82,6 +82,9 @@ const ProductPage: React.FC = () => {
 
   const handleStripePayment = async () => {
     try {
+
+      await handleAddToCart()
+
       const stripe = await loadStripe(
         "pk_live_51Oqev2Jt3qytHQNKInoySLpQxrk7NZjMKhifZwAQWpSoJVOdlOvOcM9WAH4tEMT51GwGD9SvHGkc6Suk6SwVb29400uyA7rFFj"
       );
